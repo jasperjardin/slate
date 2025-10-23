@@ -1,0 +1,25 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### AI Behavior Rules
+- **Never assume missing context. Ask questions if uncertain.**
+- **Never hallucinate libraries or functions**
+- **Always confirm file paths and module names** exist before referencing them in code or tests.
+
+- MUST use tabs for indentation
+- MUST use BEM classes except, use ".container" for a new class
+- MUST follow WCAG AA standards
+
+- MUST use predefined buttons when "mainComponentName" is present
+- Example: Type=Primary -> 'btn-primary'
+- Example: Type=Secondary Size=Small -> 'btn-secondary btn-small'
+
+- MUST use mainComponentName to determine which Icon to use
+- Example: Icon=arrow-right -> <span class="icon-arrow-right"></span>
+
+### Images
+- WHEN using image field, MUST return id.
+- MUST use wp_get_attachment_image() when including images from WordPress
+- MUST use image crop sizes in includes/setup.php. DO NOT use 'full'

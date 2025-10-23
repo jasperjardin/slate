@@ -1,0 +1,22 @@
+@use "helpers/init" as *;
+
+.block-intro-copy {
+	$self: &;
+
+	&__content {
+		max-width: cols-max(10);
+
+		#{$self}.aligncenter & {
+			margin-inline: auto;
+			text-align: center;
+
+			.block-buttons {
+				justify-content: center;
+			}
+		}
+	}
+
+	&.is-style-reduced-gap {
+		padding-bottom: $spacing-2xl;
+	}
+}

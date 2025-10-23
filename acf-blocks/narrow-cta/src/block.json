@@ -1,0 +1,41 @@
+{
+	"title": "Narrow CTA",
+	"name": "narrow-cta",
+	"description": "",
+	"icon": "button",
+	"category": "media",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": ["post"]
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": true,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {
+		"theme": {
+			"type": "string",
+			"default": "light"
+		}
+	},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

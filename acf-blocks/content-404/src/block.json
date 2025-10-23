@@ -1,0 +1,35 @@
+{
+    "title": "404 Content",
+    "name": "content-404",
+    "description" : "",
+    "icon": "warning",
+    "category": "embed",
+    "apiVersion": 2,
+    "keywords": [],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "../block.php",
+		"postTypes": []
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "alignContent": false,
+        "alignText": false,
+        "multiple": true,
+        "spacing": {
+            "padding": [
+                "top",
+                "bottom"
+            ]
+        }
+    },
+    "attributes": {},
+    "example": {
+        "attributes": {
+            "data": {}
+        }
+    },
+    "editorStyle": "file:./css/editor.css",
+    "style": "file:./css/style.css"
+}

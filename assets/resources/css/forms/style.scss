@@ -1,0 +1,480 @@
+@use "helpers/init" as *;
+
+.frm_forms {
+	form {
+		.frm_form_fields {
+			> fieldset {
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+
+			.frm_fields_container {
+				grid-gap: 0 $spacing-sm;
+			}
+
+			.frm_form_field {
+				margin-bottom: $spacing-sm;
+
+				&:has(.frm_submit) {
+					margin-bottom: 0;
+				}
+
+				.frm_primary_label {
+					--label-padding: #{0 0 $spacing-2xs 0};
+					--label-color: var(--text-body);
+					--required-color: var(--text-warning);
+					--required-weight: 600;
+
+					@include action-form-label(false);
+				}
+
+				input[type="text"],
+				input[type="email"],
+				input[type="number"],
+				input[type="tel"],
+				textarea,
+				select {
+					@include form-input;
+				}
+
+				select {
+					position: relative;
+					height: $form-height;
+					padding-right: $spacing-lg;
+					background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.0001 14.95L3.81862 6.63867L2.39331 8.04171L12.0001 17.801L21.6068 8.04171L20.1815 6.63867L12.0001 14.95Z' fill='%2381828E'/%3E%3C/svg%3E%0A");
+					background-repeat: no-repeat;
+					background-position: right $spacing-xs center;
+					background-size: 20px 20px;
+
+					option {
+						color: var(--text-body);
+
+						[data-theme="dark"] & {
+							color: $text-body-white;
+							background-color: var(--general-box-bg);
+						}
+					}
+
+					&::-ms-expand {
+						display: none; // Hide the default dropdown arrow in IE
+					}
+
+					&[aria-invalid="true"] {
+						background-color: var(--general-bg) !important;
+					}
+
+					&[multiple] {
+						height: auto;
+					}
+				}
+
+				.frm_checkbox {
+					label {
+						@include action-form-input(false);
+						display: flex;
+						align-items: center;
+
+						&:hover {
+							--line: var(--text-link);
+						}
+
+						input[type="checkbox"] {
+							width: r(17);
+							height: r(17);
+							min-width: r(17);
+							margin-right: $spacing-2xs;
+							border: 1px solid var(--general-line);
+							border-radius: 0;
+							background-color: var(--general-box-bg);
+							transition: background-color 0.3s ease, border-color 0.3s ease;
+
+							&:not([type="file"]):not([type="range"]):not([readonly]) {
+								&:hover,
+								&:focus {
+									--border-color: var(--general-action);
+									color: var(--text-body);
+									border-color: var(--general-action);
+									background-color: var(--general-box-bg);
+									box-shadow: none !important;
+								}
+
+								&:checked {
+									--border-color-active: var(--general-action);
+									background-color: var(--general-action) !important;
+								}
+							}
+						}
+					}
+				}
+
+				.frm_submit {
+					.frm_button_submit {
+						@include btn-primary();
+						margin-top: $spacing-2xs;
+						margin-bottom: 0;
+						box-shadow: none;
+					}
+				}
+
+				.frm_error {
+					color: var(--text-body);
+				}
+			}
+		}
+	}
+}
+
+.hbspt-form {
+	.hs-form {
+		fieldset {
+			display: flex;
+
+			&:not(:has(.hs_hidden_field)) {
+				margin-bottom: $spacing-sm;
+			}
+
+			&.form-columns-2 {
+				display: flex;
+				gap: $spacing-sm;
+			}
+
+			.field {
+				flex: 1 0 0;
+
+				> label {
+					@include action-form-label(false);
+					margin-bottom: $spacing-2xs;
+
+					.hs-form-required {
+						color: var(--text-warning);
+					}
+				}
+			}
+
+			input {
+				&:not([type="checkbox"]):not([type="radio"]) {
+					width: 100%;
+
+					&:not([type="file"]) {
+						@include form-input();
+					}
+				}
+
+				&[type="checkbox"] {
+					width: r(17);
+					height: r(17);
+					min-width: r(17);
+					border: 1px solid var(--general-line);
+					border-radius: 0;
+					background-color: var(--general-box-bg);
+					appearance: none;
+					transition: background-color 0.3s ease, border-color 0.3s ease;
+
+					&:hover {
+						border-color: var(--general-action);
+					}
+
+					&:checked {
+						border-color: var(--general-action);
+						background-color: var(--general-action);
+						background-image: url("data:image/svg+xml,%3Csvg width='12' height='10' viewBox='0 0 12 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 5L4 8L11 1' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A");
+						background-repeat: no-repeat;
+						background-position: center;
+					}
+				}
+
+				&[type="radio"] {
+					width: r(17);
+					height: r(17);
+					min-width: r(17);
+					border: 1px solid var(--general-line);
+					border-radius: 50%;
+					background-color: var(--general-box-bg);
+					appearance: none;
+					transition: background-color 0.3s ease, border-color 0.3s ease;
+
+					&:hover {
+						border-color: var(--general-action);
+					}
+
+					&:checked {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						border-color: var(--general-action);
+						background-color: var(--general-box-bg);
+
+						&::before {
+							content: "";
+							display: block;
+							width: 65%;
+							height: 65%;
+							border-radius: 50%;
+							background-color: var(--general-action);
+						}
+					}
+				}
+
+				&::file-selector-button {
+					@include btn-secondary;
+					@include btn-small;
+					margin-right: $spacing-xs;
+				}
+			}
+
+			select:not(.pika-select) {
+				@include form-input();
+				position: relative;
+				width: 100%;
+				height: $form-height;
+				padding-right: $spacing-lg;
+				background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.0001 14.95L3.81862 6.63867L2.39331 8.04171L12.0001 17.801L21.6068 8.04171L20.1815 6.63867L12.0001 14.95Z' fill='%2381828E'/%3E%3C/svg%3E%0A");
+				background-repeat: no-repeat;
+				background-position: right $spacing-xs center;
+				background-size: 20px 20px;
+
+				option {
+					color: var(--text-body);
+
+					[data-theme="dark"] & {
+						color: $text-body-white;
+						background-color: var(--general-box-bg);
+					}
+				}
+
+				&::-ms-expand {
+					display: none; // Hide the default dropdown arrow in IE
+				}
+			}
+
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+				> .hs-form-checkbox,
+				> .hs-form-radio {
+					> label {
+						display: flex;
+						gap: $spacing-2xs;
+						align-items: center;
+					}
+				}
+			}
+		}
+
+		.hs-submit {
+			.hs-button {
+				@include btn-primary;
+			}
+		}
+
+		.hs-error-msgs {
+			@include body-small(false);
+			margin: 0;
+			padding: 0;
+			color: var(--text-body);
+			list-style: none;
+
+			> li {
+				label {
+					margin-block: $spacing-xs;
+				}
+			}
+		}
+	}
+
+	.fn-date-picker {
+		&.pika-single {
+			position: relative;
+			z-index: 9999;
+			display: block;
+			color: #333;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			border: 1px solid #ccc;
+			border-bottom-color: #bbb;
+			background: #fff;
+
+			&.is-hidden {
+				display: none;
+			}
+
+			&.is-bound {
+				position: absolute;
+				box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+			}
+
+			&::after,
+			&::before {
+				content: " ";
+				display: table;
+			}
+
+			&::after {
+				clear: both;
+			}
+		}
+
+		.pika-lendar {
+			float: left;
+			width: 240px;
+			margin: $spacing-2xs;
+		}
+
+		.pika-title {
+			position: relative;
+			text-align: center;
+
+			select {
+				position: absolute;
+				top: 5px;
+				left: 0;
+				z-index: 9998;
+				margin: 0;
+				cursor: pointer;
+				opacity: 0;
+				filter: alpha(opacity=0);
+			}
+		}
+
+		.pika-label {
+			position: relative;
+			z-index: 9999;
+			display: inline-block;
+			margin: 0;
+			padding: 5px 3px;
+			font-weight: 700;
+			font-size: 14px;
+			line-height: 20px;
+			background-color: #fff;
+			overflow: hidden;
+		}
+
+		.pika-next,
+		.pika-prev {
+			position: relative;
+			display: block;
+			width: 20px;
+			height: 30px;
+			padding: 0;
+			white-space: nowrap;
+			text-indent: 20px;
+			border: 0;
+			background-color: transparent;
+			background-repeat: no-repeat;
+			background-position: 50%;
+			background-size: 75% 75%;
+			outline: none;
+			cursor: pointer;
+			opacity: 0.5;
+			overflow: hidden;
+
+			&:hover {
+				opacity: 1;
+			}
+
+			&.is-disabled {
+				cursor: default;
+				opacity: 0.2;
+			}
+		}
+
+		.is-rtl .pika-next,
+		.pika-prev {
+			float: left;
+			background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==");
+		}
+
+		.is-rtl .pika-prev,
+		.pika-next {
+			float: right;
+			background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=");
+		}
+
+		.pika-select {
+			display: inline-block;
+		}
+
+		.pika-table {
+			width: 100%;
+			border: 0;
+			border-collapse: collapse;
+			border-spacing: 0;
+
+			td,
+			th {
+				width: 14.285714285714286%;
+				padding: 0;
+			}
+
+			th {
+				color: #999;
+				font-weight: 700;
+				font-size: 12px;
+				line-height: 25px;
+				text-align: center;
+			}
+
+			abbr {
+				border-bottom: none;
+				cursor: help;
+			}
+		}
+
+		.pika-button {
+			display: block;
+			width: 100%;
+			margin: 0;
+			padding: 5px;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			color: #666;
+			font-size: 12px;
+			line-height: 15px;
+			text-align: right;
+			border: 0;
+			background: #f5f5f5;
+			outline: none;
+			cursor: pointer;
+
+			&:hover {
+				color: #fff !important;
+				border-radius: 3px !important;
+				background: #ff8000 !important;
+				box-shadow: none !important;
+			}
+		}
+
+		.is-today {
+			.pika-button {
+				color: #3af;
+				font-weight: 700;
+			}
+		}
+
+		.is-selected {
+			.pika-button {
+				color: #fff;
+				font-weight: 700;
+				border-radius: 3px;
+				background: #3af;
+				box-shadow: inset 0 1px 3px #178fe5;
+			}
+		}
+
+		.is-disabled {
+			.pika-button {
+				color: #999;
+				cursor: default;
+				opacity: 0.3;
+				pointer-events: none;
+			}
+		}
+
+		.pika-week {
+			color: #999;
+			font-size: 11px;
+		}
+	}
+}

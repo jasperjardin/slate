@@ -1,0 +1,19 @@
+@use "helpers/init" as *;
+
+.block-content-404 {
+	max-width: cols-max(6);
+	margin-inline: auto;
+	text-align: center;
+
+	h1 {
+		margin-bottom: r(16);
+
+		+ * {
+			margin-top: 0;
+		}
+	}
+
+	.block-buttons {
+		justify-content: center !important;
+	}
+}

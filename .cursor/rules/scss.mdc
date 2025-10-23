@@ -1,0 +1,26 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### SCSS
+- MUST use SCSS spacing variables for paddings, margins, gaps, etc
+- Example: spacing/page-margins -> $spacing-page-margins
+
+- MUST use matching CSS variables for colors
+- MUST not include "elements" in color variables
+- Example: elements/general/bg -> var(--general-bg)
+
+- MUST use typogra mixins from _font-styles.scss
+- Do not include "normal" in typogra mixins
+- Example: body/normal -> @include body;
+- Example: body/small -> @include body-small
+- Use (false) if you want a custom margin bottom
+- Example: @include body-small(false)
+
+- MUST use mobile first
+- MUST use media-breakpoint-up mixin for media queries
+- MUST use `@use "helpers/init" as *` to load assets.
+
+- If padding/margin/borders should be applied to the top and bottom use `{padding|margin|border}-block: {value}`
+- If padding/margin/borders should be applied to the left and right use `{padding|margin|border}-inline: {value}`

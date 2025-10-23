@@ -1,0 +1,86 @@
+@use "helpers/init" as *;
+
+.testimonial-pagination {
+	display: flex;
+	gap: $spacing-sm;
+	justify-content: center;
+	padding: 0;
+
+	@include media-breakpoint-up(md) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__button {
+		@include icon-font($icon-arrow-right, 20);
+		@include btn-reset;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rv(42, 56);
+		height: rv(42, 56);
+		color: var(--buttons-primary-text);
+		border-radius: 50%;
+		background-color: var(--buttons-primary-bg);
+		transition: background-color 0.3s ease-out;
+
+		&:hover {
+			background-color: var(--buttons-primary-bg-hover);
+		}
+
+		&--prev {
+			&::after {
+				content: $icon-arrow-left;
+			}
+		}
+	}
+}
+
+.testimonial-slider {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: $spacing-xl;
+
+	&__wrapper {
+		max-width: cols(10);
+		margin-inline: auto;
+	}
+}
+
+.testimonial-slide {
+	&__bottom {
+		display: flex;
+		gap: $spacing-sm;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__img {
+		width: rv(60, 80);
+		height: rv(60, 80);
+		border-radius: 50%;
+	}
+
+	&__meta {
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	&__name {
+		@include t5();
+		padding-bottom: $spacing-3xs;
+	}
+
+	&__quote {
+		@include t4();
+		color: var(--text-body);
+		text-align: center;
+	}
+}

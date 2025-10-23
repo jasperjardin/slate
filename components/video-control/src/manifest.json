@@ -1,0 +1,8 @@
+{
+	"style": [
+		"file:./css/style.css"
+	],
+	"editorStyle": [
+		"file:./css/editor.css"
+	]
+}

@@ -1,0 +1,33 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.block-content-media-split {
+		$self: ".block-content-media-split";
+
+		> .container {
+			display: block;
+
+			> .acf-innerblocks-container {
+				display: flex;
+				width: 100%;
+
+				.block-content {
+					flex: 50%;
+				}
+
+				.block-media {
+					flex: 50%;
+				}
+			}
+		}
+
+		&.alignright {
+			> .container > .acf-innerblocks-container {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+}

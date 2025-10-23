@@ -1,0 +1,37 @@
+@use "helpers/init" as *;
+
+.image-slider {
+	display: flex;
+	flex-direction: column;
+	gap: $spacing-md;
+	width: 100%;
+	max-width: 100%;
+	overflow: hidden;
+
+	&.swiper {
+		width: 100%;
+	}
+
+	.swiper-wrapper {
+		width: 100%;
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+		border: 1px solid var(--general-line);
+		border-radius: $border-radius;
+		object-fit: cover;
+		aspect-ratio: 16 / 9;
+	}
+
+	&__caption {
+		@include body-small;
+		display: none;
+		margin-bottom: 0;
+
+		&--active {
+			display: block;
+		}
+	}
+}

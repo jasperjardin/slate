@@ -1,0 +1,42 @@
+{
+    "key": "group_68d1ad14168dc",
+    "title": "Block: Icon List Item",
+    "fields": [
+        {
+            "key": "field_68d1ad1471c18",
+            "label": "Icon",
+            "name": "icon",
+            "aria-label": "",
+            "type": "icon_font_picker",
+            "instructions": "",
+            "required": 0,
+			"default_value": "checkmark",
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/icon-list-item"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1758571821
+}

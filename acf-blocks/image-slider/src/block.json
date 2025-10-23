@@ -1,0 +1,35 @@
+{
+	"title": "Image Slider",
+	"name": "image-slider",
+	"description": "",
+	"icon": "slides",
+	"category": "media",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

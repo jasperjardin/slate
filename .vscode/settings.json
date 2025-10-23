@@ -1,0 +1,18 @@
+{
+	"scss.validate": false,
+	"css.validate": false,
+	"stylelint.enable": true,
+	"stylelint.validate": [
+		"scss",
+		"css",
+		".module.scss"
+	],
+	"stylelint.config": null,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit"
+	},
+	"[php]": {
+		"editor.formatOnSave": true
+	}
+}

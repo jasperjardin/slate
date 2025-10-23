@@ -1,0 +1,13 @@
+{
+	"script": [
+		"file:./js/script.ts",
+		"swiperjs"
+	],
+	"style": [
+		"file:./css/style.css",
+		"swiperjs"
+	],
+	"editorStyle": [
+		"file:./css/editor.css"
+	]
+}

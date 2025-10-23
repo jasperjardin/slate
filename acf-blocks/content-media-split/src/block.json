@@ -1,0 +1,48 @@
+{
+	"title": "Content & Media Split",
+	"name": "content-media-split",
+	"description": "",
+	"icon": "format-image",
+	"category": "media",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": [
+			"right",
+			"left"
+		],
+		"anchor": true,
+		"alignContent": true,
+		"alignText": false,
+		"multiple": true,
+		"theme": true,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {
+        "align": {
+            "type": "string",
+            "default": "right"
+        },
+        "alignContent": {
+            "type": "string",
+            "default": "center"
+        }
+	},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

@@ -1,0 +1,37 @@
+{
+	"title": "Testimonial Slider",
+	"name": "testimonial-slider",
+	"description": "",
+	"icon": "editor-quote",
+	"category": "embed",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": false,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"script": ["file:./js/script.ts", "swiperjs"],
+	"editorStyle": "file:./css/editor.css",
+	"style": ["file:./css/style.css", "swiperjs"]
+}

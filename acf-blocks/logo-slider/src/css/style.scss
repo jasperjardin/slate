@@ -1,0 +1,79 @@
+@use "helpers/init" as *;
+
+.block-logo-slider {
+	padding-block: $spacing-lg;
+
+	&__content {
+		margin-bottom: $spacing-md;
+	}
+}
+
+.logo-slider {
+	$self: &;
+	display: flex;
+	gap: $spacing-md;
+	justify-content: center;
+	align-items: center;
+
+	&.swiper-no-arrows {
+		.swiper-slide-duplicate {
+			display: none;
+		}
+	}
+
+	&__wrapper {
+		display: none;
+		flex: 1 0 0;
+
+		&.swiper-initialized {
+			display: flex;
+		}
+	}
+
+	&__button {
+		display: none !important; // override btn-reset.
+		justify-content: center;
+		align-items: center;
+		width: rv(32, 40);
+		height: rv(32, 40);
+
+		#{$self}:not(.swiper-no-arrows) & {
+			display: inline-block !important; // override btn-reset.
+		}
+
+		&--prev,
+		&--next {
+			@include btn-reset;
+			color: var(--general-action);
+
+			&::after {
+				display: block;
+			}
+		}
+
+		&--prev {
+			@include icon-font($icon-arrow-left, 20);
+		}
+
+		&--next {
+			@include icon-font($icon-arrow-right, 20);
+		}
+	}
+}
+
+.logo-slide {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	aspect-ratio: 3 / 2;
+
+	&__img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}

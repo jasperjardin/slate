@@ -1,0 +1,33 @@
+{
+	"title": "Hero",
+	"name": "hero",
+	"description": "",
+	"icon": "superhero-alt",
+	"category": "media",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"theme": true,
+		"multiple": true,
+		"spacing": {
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

@@ -1,0 +1,36 @@
+{
+	"title": "Tab",
+	"name": "tab",
+	"description": "",
+	"icon": "minus",
+	"category": "text",
+	"apiVersion": 2,
+	"keywords": [],
+	"parent": [
+		"acf/tabs",
+		"acf/accordion"
+	],
+	"usesContext": [
+		"tabs_fields"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

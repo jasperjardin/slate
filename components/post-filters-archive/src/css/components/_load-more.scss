@@ -1,0 +1,12 @@
+@use "helpers/init" as *;
+
+.pfa-load-more {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: rv(20, 30);
+
+	&__button {
+		@include btn-primary;
+	}
+}

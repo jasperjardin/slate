@@ -1,0 +1,50 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.block-sticky-media-content-split {
+		display: block;
+
+		&.alignright {
+			.block-content-media-split {
+				.container > .acf-innerblocks-container {
+					flex-direction: row !important;
+				}
+			}
+		}
+
+		&:not(.alignright) {
+			.block-content-media-split {
+				.container > .acf-innerblocks-container {
+					flex-direction: row-reverse !important;
+				}
+			}
+		}
+
+		.block-content-media-split {
+			padding-block: $spacing-xl;
+
+			.container {
+				gap: 0;
+				min-height: unset;
+			}
+
+			.block-media {
+				visibility: visible;
+				pointer-events: all;
+			}
+
+			.block-content {
+				padding-left: inherit;
+			}
+		}
+
+		.component-media {
+			width: unset;
+			min-height: unset;
+			padding-inline: 0;
+		}
+	}
+}

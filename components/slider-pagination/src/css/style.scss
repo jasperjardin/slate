@@ -1,0 +1,52 @@
+@use "helpers/init" as *;
+
+.slider-pagination {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	&__arrows {
+		display: flex;
+		gap: $spacing-sm;
+	}
+
+	&__numbers {
+		@include body(false);
+		display: flex;
+		gap: $spacing-3xs;
+	}
+
+	&__current {
+		color: var(--text-body);
+		font-weight: 700;
+	}
+
+	&__button {
+		@include icon-font($icon-arrow-right, 20);
+		@include btn-reset;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rv(42, 56);
+		height: rv(42, 56);
+		color: var(--buttons-primary-text);
+		border-radius: 50%;
+		background-color: var(--buttons-primary-bg);
+		transition: background-color 0.3s ease-out, opacity 0.3s ease-out;
+
+		&:hover {
+			background-color: var(--buttons-primary-bg-hover);
+		}
+
+		&--prev {
+			&::after {
+				content: $icon-arrow-left;
+			}
+		}
+
+		&--disabled {
+			opacity: 0.3;
+			pointer-events: none;
+		}
+	}
+}

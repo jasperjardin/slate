@@ -1,0 +1,37 @@
+{
+	"title": "Content Card",
+	"name": "content-card",
+	"description": "",
+	"icon": "welcome-add-page",
+	"category": "media",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"parent": [
+		"acf/content-cards"
+	],
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": false,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@use "helpers/init" as *;
+
+.btn-primary {
+	@include btn-primary;
+}
+
+.btn-secondary {
+	@include btn-secondary;
+}
+
+.btn-tertiary {
+	@include btn-tertiary;
+}
+

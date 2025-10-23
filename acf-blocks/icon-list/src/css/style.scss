@@ -1,0 +1,23 @@
+@use "helpers/init" as *;
+
+.block-icon-list {
+	.block-icon-list__inner {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-margin-bottom-list-inner-gap;
+	}
+}
+
+.block-icon-list-item {
+	display: flex;
+	gap: $spacing-2xs;
+	align-items: flex-start;
+	padding-right: $spacing-md;
+
+	[class^="icon-"] {
+		width: r(24);
+		height: r(24);
+		color: var(--graphics-iconography);
+		font-size: r(24);
+	}
+}

@@ -1,0 +1,25 @@
+@use "helpers/icon-variables" as *;
+
+@at-root {
+	@font-face {
+		font-weight: 400;
+		font-family: <%= fontName %>;
+		font-style: normal;
+		src: url("<%= fontPath %><%= fontName %>.ttf?v=<%= version %>");
+	}
+}
+
+[class^="icon-"]::after {
+	display: inline-block;
+	font-weight: 400;
+	font-family: <%= fontName %>, sans-serif;
+	font-style: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+<% _.each(glyphs, function(glyph, index) { %>
+.icon-<%= glyph.name %>::after {
+	content: $icon-<%= glyph.name %>;
+}<% if (index < glyphs.length - 1) { %>
+<% } %><% }); %>

@@ -1,0 +1,44 @@
+{
+	"title": "Featured Post",
+	"name": "featured-post",
+	"description": "",
+	"icon": "star-filled",
+	"category": "text, media, embed",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": [
+			"right",
+			"left"
+		],
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": true,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "right"
+		}
+	},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

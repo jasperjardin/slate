@@ -1,0 +1,63 @@
+@use "helpers/init" as *;
+
+.block-content-media-split {
+	$self: ".block-content-media-split";
+
+	> .container {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: $gutter;
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: repeat(2, 1fr);
+			align-items: center;
+		}
+
+		> .block-content {
+			order: 2;
+
+			@include media-breakpoint-up(md) {
+				order: 2;
+			}
+		}
+
+		> .block-media {
+			order: 1;
+			min-width: 0;
+
+			@include media-breakpoint-up(md) {
+				order: 1;
+			}
+		}
+	}
+
+	&.is-vertically-aligned-top {
+		> .container {
+			@include media-breakpoint-up(md) {
+				align-items: start;
+			}
+		}
+	}
+
+	&.is-vertically-aligned-bottom {
+		> .container {
+			@include media-breakpoint-up(md) {
+				align-items: end;
+			}
+		}
+	}
+
+	&.alignleft {
+		> .container {
+			@include media-breakpoint-up(md) {
+				> .block-content {
+					order: 2;
+				}
+
+				> .block-media {
+					order: 1;
+				}
+			}
+		}
+	}
+}

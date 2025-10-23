@@ -1,0 +1,72 @@
+@use "helpers/init" as *;
+
+.block-full-screen-image {
+	$self: &;
+	position: relative;
+	justify-content: center;
+	isolation: isolate;
+
+	&__background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+		background: var(--general-overlay-solid);
+	}
+
+	&.alignleft {
+		#{$self}__wrapper {
+			justify-content: flex-start;
+		}
+	}
+
+	&.alignright {
+		#{$self}__wrapper {
+			justify-content: flex-end;
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		min-height: r(700);
+		padding-block: $spacing-3xl;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		max-width: cols-max(10);
+		margin-inline: auto;
+		text-align: center;
+
+		.alignleft &,
+		.alignright & {
+			justify-content: flex-start;
+			align-items: flex-start;
+			max-width: cols-max(6);
+			margin-inline: 0;
+			text-align: left;
+		}
+	}
+}

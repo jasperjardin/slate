@@ -1,0 +1,267 @@
+@use "variables" as *;
+
+// TODO: After importing from figma, add color: var(--text-heading); to t1-t6.
+// This functionality needs to be added in the figma plugin
+
+@mixin t1($margins: true) {
+	color: var(--text-heading);
+	font-weight: $font-weight-heading;
+	font-size: $font-size-5xl;
+	font-family: $font-family-heading;
+	line-height: 1.2;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-t1;
+	}
+}
+
+@mixin t2($margins: true) {
+	color: var(--text-heading);
+	font-weight: $font-weight-heading;
+	font-size: $font-size-4xl;
+	font-family: $font-family-heading;
+	line-height: 1.3;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-t2;
+	}
+}
+
+@mixin t3($margins: true) {
+	color: var(--text-heading);
+	font-weight: $font-weight-heading;
+	font-size: $font-size-3xl;
+	font-family: $font-family-heading;
+	line-height: 1.3;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-t3;
+	}
+}
+
+@mixin t4($margins: true) {
+	color: var(--text-heading);
+	font-weight: $font-weight-heading;
+	font-size: $font-size-2xl;
+	font-family: $font-family-heading;
+	line-height: 1.4;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-t4;
+	}
+}
+
+@mixin t5($margins: true) {
+	color: var(--text-heading);
+	font-weight: $font-weight-heading;
+	font-size: $font-size-xl;
+	font-family: $font-family-heading;
+	line-height: 1.4;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-t5;
+	}
+}
+
+@mixin t6($margins: true) {
+	color: var(--text-heading);
+	font-weight: $font-weight-heading;
+	font-size: $font-size-lg;
+	font-family: $font-family-heading;
+	line-height: 1.4;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-t6;
+	}
+}
+
+@mixin supertext($margins: true) {
+	color: var(--text-supertext);
+	font-weight: $font-weight-supertext;
+	font-size: $font-size-2xs;
+	font-family: $font-family-supertext;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-supertext;
+
+		+ h1,
+		+ h2,
+		+ h3,
+		+ h4,
+		+ h5,
+		+ h6 {
+			margin-top: 0 !important;
+		}
+	}
+}
+
+@mixin supertext-large($margins: true) {
+	color: var(--text-supertext);
+	font-weight: $font-weight-supertext;
+	font-size: $font-size-md;
+	font-family: $font-family-supertext;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-supertext-lg;
+	}
+}
+
+@mixin body-extra-small($margins: true) {
+	color: var(--text-body);
+	font-weight: $font-weight-body;
+	font-size: $font-size-3xs;
+	font-family: $font-family-body;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-body-xs;
+	}
+}
+
+@mixin body-small($margins: true) {
+	color: var(--text-body);
+	font-weight: $font-weight-body;
+	font-size: $font-size-2xs;
+	font-family: $font-family-body;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-body-sm;
+	}
+}
+
+@mixin body($margins: true) {
+	color: var(--text-body);
+	font-weight: $font-weight-body;
+	font-size: $font-size-sm;
+	font-family: $font-family-body;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-body-norm;
+	}
+}
+
+@mixin body-medium($margins: true) {
+	color: var(--text-body);
+	font-weight: $font-weight-body;
+	font-size: $font-size-lg;
+	font-family: $font-family-body;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-body-md;
+	}
+}
+
+@mixin action-button-small($margins: true) {
+	font-weight: $font-weight-button;
+	font-size: $font-size-2xs;
+	font-family: $font-family-button;
+	line-height: 1.5;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-action;
+	}
+}
+
+@mixin action-button($margins: true) {
+	font-weight: $font-weight-button;
+	font-size: $font-size-xs;
+	font-family: $font-family-button;
+	line-height: 1.5;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-action;
+	}
+}
+
+@mixin action-menu-item-small($margins: true) {
+	font-weight: $font-weight-menu-item;
+	font-size: $font-size-2xs;
+	font-family: $font-family-menu-item;
+	line-height: 1.5;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-action;
+	}
+}
+
+@mixin action-menu-item($margins: true) {
+	font-weight: $font-weight-menu-item;
+	font-size: $font-size-xs;
+	font-family: $font-family-menu-item;
+	line-height: 1.5;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-action;
+	}
+}
+
+@mixin action-menu-item-large($margins: true) {
+	font-weight: $font-weight-menu-item;
+	font-size: $font-size-md;
+	font-family: $font-family-menu-item;
+	line-height: 1.5;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-action;
+	}
+}
+
+@mixin action-tab-item-small($margins: true) {
+	font-weight: $font-weight-tab-item;
+	font-size: $font-size-sm;
+	font-family: $font-family-tab-item;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-action;
+	}
+}
+
+@mixin action-tab-item-large($margins: true) {
+	font-weight: $font-weight-tab-item;
+	font-size: $font-size-3xl;
+	font-family: $font-family-tab-item;
+	line-height: 1.3;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-action;
+	}
+}
+
+@mixin action-accordion($margins: true) {
+	font-weight: $font-weight-heading;
+	font-size: $font-size-md;
+	font-family: $font-family-heading;
+	line-height: 1.4;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-t6;
+	}
+}
+
+@mixin action-form-label($margins: true) {
+	font-weight: 600;
+	font-size: $font-size-sm;
+	font-family: $font-family-body;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-form;
+	}
+}
+
+@mixin action-form-input($margins: true) {
+	font-weight: $font-weight-body;
+	font-size: $font-size-xs;
+	font-family: $font-family-body;
+	line-height: 1.6;
+
+	@if ( $margins ) {
+		margin-bottom: $spacing-margin-bottom-form;
+	}
+}

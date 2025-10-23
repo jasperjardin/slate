@@ -1,0 +1,71 @@
+@use "helpers/init" as *;
+
+.pfa-pagination {
+	display: flex;
+	gap: $spacing-sm;
+	justify-content: center;
+	align-items: center;
+	padding-top: $spacing-md;
+
+	&__prev-buttons,
+	&__next-buttons {
+		display: flex;
+		gap: $spacing-xs;
+		justify-content: center;
+		align-items: center;
+
+		@include media-breakpoint-up(md) {
+			gap: $spacing-sm;
+		}
+
+		[class^="icon"] {
+			display: block;
+			color: var(--text-link);
+			font-size: r(20);
+
+			&::after {
+				display: block;
+			}
+		}
+	}
+
+	&__prev,
+	&__next {
+		text-decoration: none;
+
+		&--disabled {
+			cursor: default;
+			opacity: 0.2;
+			pointer-events: none;
+		}
+	}
+
+	&__page-numbers {
+		display: flex;
+		gap: $spacing-3xs;
+		align-items: flex-end;
+		text-align: center;
+	}
+
+	&__page-number {
+		@include body(false);
+		min-width: $spacing-md;
+		color: var(--text-body);
+		text-decoration: none;
+		transition: color 0.3s ease-out;
+
+		&:hover,
+		&:focus {
+			color: var(--buttons-primary-bg);
+		}
+
+		&--active {
+			color: var(--buttons-primary-bg);
+			font-weight: 700;
+		}
+	}
+
+	button {
+		@include btn-reset;
+	}
+}

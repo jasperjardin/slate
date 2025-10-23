@@ -1,0 +1,22 @@
+@use "helpers/init" as *;
+@use "components/posts-grid";
+@use "components/filters";
+@use "components/load-more";
+@use "components/loading";
+@use "components/no-results";
+@use "components/result-count";
+@use "components/pagination-numbers";
+@use "components/post";
+
+.post-filters-archive {
+	body.search & {
+		max-width: none;
+		margin-inline: 0;
+		padding-inline: 0;
+
+		.pfa-posts,
+		.pfa-search-bar {
+			padding-inline: $page-margins;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+@use "helpers/init" as *;
+
+.block-narrow-cta {
+	$self: &;
+	margin-bottom: $spacing-margin-bottom-body-norm;
+	padding: $spacing-other-cta-box;
+	border: 1px solid var(--general-line);
+	border-radius: $border-radius;
+	background: var(--general-bg);
+
+	&--has-image {
+		#{$self}__wrapper {
+			display: flex;
+			flex-direction: column-reverse;
+			gap: $spacing-md;
+
+			@include media-breakpoint-up(md) {
+				flex-direction: row;
+			}
+
+			#{$self}__content {
+				text-align: center;
+
+				@include media-breakpoint-up(md) {
+					text-align: left;
+				}
+			}
+
+			.block-buttons {
+				@include media-breakpoint-up(md) {
+					justify-content: flex-start;
+				}
+			}
+		}
+	}
+
+	&__content {
+		flex: 1 0 0;
+		text-align: center;
+	}
+
+	&__img-container {
+		@include media-breakpoint-up(md) {
+			max-width: r(263);
+		}
+
+		img {
+			border-radius: $border-radius;
+		}
+	}
+
+	.block-buttons {
+		justify-content: center;
+	}
+}

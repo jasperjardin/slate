@@ -1,0 +1,94 @@
+@use "helpers/init" as *;
+
+.video-inline {
+	$self: &;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	border-radius: $border-radius;
+	overflow: hidden;
+
+	&__embed {
+		display: none;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+
+		#{$self}--autoplay &,
+		#{$self}--is-visible & {
+			display: block;
+		}
+	}
+
+	iframe {
+		display: none;
+		width: 100%;
+		height: auto;
+		overflow: hidden;
+		pointer-events: all;
+		aspect-ratio: 16 / 9;
+
+		&.visible {
+			display: block;
+		}
+	}
+
+	.video-control {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		opacity: 1;
+		transition: opacity 300ms ease;
+		aspect-ratio: 3 / 2;
+
+		&:has(+ iframe.visible) {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+
+	&--autoplay {
+		iframe {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			display: block;
+			width: auto !important;
+			height: auto !important;
+			min-width: 100%;
+			min-height: 100%;
+			transform: translate(-50%, -50%);
+			pointer-events: none;
+		}
+
+		.video-control {
+			top: auto;
+			left: auto;
+			bottom: r(12);
+			right: r(12);
+			z-index: 1;
+
+			@include media-breakpoint-up(md) {
+				bottom: r(20);
+				right: r(20);
+			}
+
+			i {
+				transform: scale(0.8);
+
+				@include media-breakpoint-up(md) {
+					transform: scale(1);
+				}
+			}
+
+			&:hover {
+				i {
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+}

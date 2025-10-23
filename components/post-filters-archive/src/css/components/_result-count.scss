@@ -1,0 +1,19 @@
+@use "helpers/init" as *;
+
+.pfa-result-count {
+	@include body-small(false);
+	display: flex;
+	gap: $spacing-lg;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: $spacing-lg;
+	color: var(--text-heading);
+	font-weight: 700;
+
+	&--search {
+		max-width: cols-max(8);
+		margin-inline: auto;
+		margin-bottom: $spacing-row-gap;
+		text-align: center;
+	}
+}

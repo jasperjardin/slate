@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- MUST run `cp -r tasks/templates/component` when creating a new component.
+- MUST use get_component( 'component-name' ) to include components
+- MUST not change the manifest.json file

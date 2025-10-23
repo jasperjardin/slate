@@ -1,0 +1,22 @@
+{
+	"mcpServers": {
+		"filesystem": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-filesystem",
+				"${ALLOWED_FILESYSTEM_PATH}"
+			]
+		},
+		"brave-search": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-brave-search"
+			],
+			"env": {
+				"BRAVE_API_KEY": "${BRAVE_API_KEY}"
+			}
+		}
+	}
+}

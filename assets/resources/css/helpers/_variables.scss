@@ -1,0 +1,647 @@
+@use "helpers/functions" as *;
+
+// Dimensions
+$spacing-page-margins: rv(20, 68);
+$spacing-column-gap: rv(20, 48);
+$spacing-2xs: r(12);
+$spacing-xs: rv(14, 18);
+$spacing-sm: rv(16, 22);
+$spacing-md: rv(24, 32);
+$spacing-lg: rv(32, 40);
+$spacing-xl: rv(40, 56);
+$spacing-2xl: rv(48, 80);
+$spacing-3xl: rv(56, 104);
+$spacing-3xs: r(8);
+$spacing-row-gap: rv(32, 40);
+$border-radius: r(7);
+$border-radius-lg: r(12);
+$line-width: 1px;
+$font-family-heading: inter;
+$font-family-body: inter;
+$font-size-3xs: r(12);
+$font-size-2xs: rv(13, 14);
+$font-size-xs: r(16);
+$font-size-sm: rv(16, 17);
+$font-size-md: r(18);
+$font-size-xl: rv(22, 28);
+$font-size-2xl: rv(28, 40);
+$font-size-3xl: rv(32, 48);
+$font-size-4xl: rv(36, 56);
+$font-size-5xl: rv(40, 64);
+$font-size-lg: rv(20, 22);
+$font-size-6xl: rv(52, 80);
+$font-family-menu-item: inter;
+$font-family-button: inter;
+$spacing-sticky-top: r(120);
+$nav-height: rv(60, 80);
+$font-weight-heading: 700;
+$font-weight-body: 400;
+$font-weight-menu-item: 600;
+$font-weight-button: 700;
+$spacing-margin-bottom-t1: rv(14, 20);
+$spacing-margin-bottom-body-xs: rv(14, 20);
+$spacing-margin-bottom-t5: r(14);
+$spacing-margin-bottom-body-md: rv(26, 32);
+$spacing-margin-bottom-t3: rv(14, 20);
+$spacing-margin-bottom-body-sm: rv(18, 22);
+$form-height: rv(44, 48);
+$spacing-margin-bottom-t2: rv(14, 20);
+$spacing-margin-bottom-t4: r(14);
+$spacing-margin-bottom-t6: r(14);
+$spacing-margin-bottom-body-norm: rv(22, 26);
+$spacing-margin-bottom-supertext: r(10);
+$spacing-margin-bottom-action: r(8);
+$spacing-margin-bottom-form: rv(22, 26);
+$spacing-margin-bottom-list: rv(22, 26);
+$spacing-margin-bottom-list-inner-gap: rv(14, 18);
+$font-family-tab-item: inter;
+$font-weight-tab-item: semibold;
+$font-family-supertext: inter;
+$font-weight-supertext: bold;
+$spacing-4xs: r(4);
+$spacing-margin-bottom-buttons: rv(22, 26);
+$spacing-margin-bottom-media: rv(22, 26);
+$spacing-margin-bottom-separator: rv(22, 26);
+$spacing-5xs: r(2);
+$spacing-margin-bottom-accordion: rv(22, 26);
+$attributes-nav-utility-height: r(40);
+$spacing-margin-bottom-supertext-lg: r(10);
+$attributes-buttons-icon-button-md: rv(40, 52);
+$attributes-buttons-icon-button-sm: rv(32, 40);
+$attributes-buttons-icon-button-lg: rv(60, 90);
+$attributes-buttons-button-min-width: rv(130, 150);
+$attributes-buttons-button-small-min-width: r(120);
+$spacing-other-tab-content: rv(20, 40);
+$spacing-other-accordion: rv(20, 32);
+$spacing-other-cta-box: rv(24, 56);
+$attributes-containers-cta-min-height: rv(320, 500);
+$attributes-icons-quote-icon: rv(40, 60);
+
+// Paints
+$text-link-white: #6929ff;
+$text-link-light: #6929ff;
+$text-link-dark: #fff;
+$buttons-primary-bg-hover-white: #9061ff;
+$buttons-primary-bg-hover-light: #9061ff;
+$buttons-primary-bg-hover-dark: #9061ff;
+$buttons-primary-bg-white: #6929ff;
+$buttons-primary-bg-light: #6929ff;
+$buttons-primary-bg-dark: #fff;
+$general-line-white: #d7d9e8;
+$general-line-light: #b0b4cf;
+$general-line-dark: rgba(255, 255, 255, 0.2);
+$text-link-hover-white: #9061ff;
+$text-link-hover-light: #9061ff;
+$text-link-hover-dark: #9061ff;
+$text-heading-white: #102e85;
+$text-heading-light: #102e85;
+$text-heading-dark: #fff;
+$text-body-white: #424449;
+$text-body-light: #424449;
+$text-body-dark: #fff;
+$general-bg-white: #fff;
+$general-bg-light: #eff3fb;
+$general-bg-dark: #0b2266;
+$general-body-bg-white: #fff;
+$general-body-bg-light: #eff3fb;
+$general-body-bg-dark: #0b2266;
+$text-menu-item-white: #102e85;
+$text-menu-item-light: #102e85;
+$text-menu-item-dark: #fff;
+$text-warning-white: #e51332;
+$text-warning-light: #e51332;
+$text-warning-dark: #ff536c;
+$text-success-white: #50b133;
+$text-success-light: #50b133;
+$text-success-dark: #50b133;
+$general-accent-white: #5189b1;
+$general-accent-light: #5189b1;
+$general-accent-dark: #5189b1;
+$general-overlay-solid-white: rgba(255, 255, 255, 0.6);
+$general-overlay-solid-light: rgba(239, 243, 251, 0.6);
+$general-overlay-solid-dark: rgba(0, 0, 0, 0.6);
+$general-overlay-gradient-stop-1-white: rgba(255, 255, 255, 0.7);
+$general-overlay-gradient-stop-1-light: rgba(239, 243, 251, 0.7);
+$general-overlay-gradient-stop-1-dark: rgba(0, 0, 0, 0.7);
+$general-overlay-gradient-stop-2-white: rgba(255, 255, 255, 0.35);
+$general-overlay-gradient-stop-2-light: rgba(239, 243, 251, 0.35);
+$general-overlay-gradient-stop-2-dark: rgba(0, 0, 0, 0.35);
+$buttons-primary-border-white: rgba(255, 255, 255, 0);
+$buttons-primary-border-light: rgba(255, 255, 255, 0);
+$buttons-primary-border-dark: rgba(255, 255, 255, 0);
+$buttons-primary-border-hover-white: #9061ff;
+$buttons-primary-border-hover-light: #9061ff;
+$buttons-primary-border-hover-dark: #9061ff;
+$buttons-primary-text-hover-white: #fff;
+$buttons-primary-text-hover-light: #fff;
+$buttons-primary-text-hover-dark: #fff;
+$buttons-primary-text-white: #fff;
+$buttons-primary-text-light: #fff;
+$buttons-primary-text-dark: #6929ff;
+$buttons-secondary-bg-white: rgba(255, 255, 255, 0);
+$buttons-secondary-bg-light: rgba(255, 255, 255, 0);
+$buttons-secondary-bg-dark: rgba(255, 255, 255, 0);
+$buttons-secondary-bg-hover-white: #6929ff;
+$buttons-secondary-bg-hover-light: #6929ff;
+$buttons-secondary-bg-hover-dark: #fff;
+$buttons-secondary-border-white: #6929ff;
+$buttons-secondary-border-light: #6929ff;
+$buttons-secondary-border-dark: #fff;
+$buttons-secondary-border-hover-white: #6929ff;
+$buttons-secondary-border-hover-light: #6929ff;
+$buttons-secondary-border-hover-dark: #fff;
+$buttons-secondary-text-white: #6929ff;
+$buttons-secondary-text-light: #6929ff;
+$buttons-secondary-text-dark: #fff;
+$buttons-secondary-text-hover-white: #fff;
+$buttons-secondary-text-hover-light: #fff;
+$buttons-secondary-text-hover-dark: #6929ff;
+$general-action-white: #6929ff;
+$general-action-light: #6929ff;
+$general-action-dark: #6929ff;
+$general-action-hover-white: #9061ff;
+$general-action-hover-light: #9061ff;
+$general-action-hover-dark: #9061ff;
+$text-menu-item-hover-white: #6929ff;
+$text-menu-item-hover-light: #6929ff;
+$text-menu-item-hover-dark: rgba(255, 255, 255, 0.7);
+$general-box-bg-white: #eff3fb;
+$general-box-bg-light: #fff;
+$general-box-bg-dark: rgba(255, 255, 255, 0.1);
+$buttons-tertiary-bg-white: rgba(255, 255, 255, 0);
+$buttons-tertiary-bg-light: rgba(255, 255, 255, 0);
+$buttons-tertiary-bg-dark: rgba(255, 255, 255, 0);
+$buttons-tertiary-text-white: #6929ff;
+$buttons-tertiary-text-light: #6929ff;
+$buttons-tertiary-text-dark: #fff;
+$buttons-tertiary-border-white: rgba(255, 255, 255, 0);
+$buttons-tertiary-border-light: rgba(255, 255, 255, 0);
+$buttons-tertiary-border-dark: rgba(255, 255, 255, 0);
+$buttons-tertiary-bg-hover-white: rgba(255, 255, 255, 0);
+$buttons-tertiary-bg-hover-light: rgba(255, 255, 255, 0);
+$buttons-tertiary-bg-hover-dark: rgba(255, 255, 255, 0);
+$buttons-tertiary-text-hover-white: #9061ff;
+$buttons-tertiary-text-hover-light: #9061ff;
+$buttons-tertiary-text-hover-dark: #9061ff;
+$buttons-tertiary-border-hover-white: #9061ff;
+$buttons-tertiary-border-hover-light: #9061ff;
+$buttons-tertiary-border-hover-dark: #9061ff;
+$dark-element-visibility-dark: 100;
+$light-element-visibility-white: 100;
+$light-element-visibility-light: 100;
+$text-supertext-white: rgba(11, 34, 102, 0.8);
+$text-supertext-light: rgba(11, 34, 102, 0.8);
+$text-supertext-dark: rgba(255, 255, 255, 0.7);
+$buttons-primary-icon-white: #fff;
+$buttons-primary-icon-light: #fff;
+$buttons-primary-icon-dark: #6929ff;
+$buttons-primary-icon-hover-white: #fff;
+$buttons-primary-icon-hover-light: #fff;
+$buttons-primary-icon-hover-dark: #fff;
+$buttons-secondary-icon-white: #6929ff;
+$buttons-secondary-icon-light: #6929ff;
+$buttons-secondary-icon-dark: #fff;
+$buttons-secondary-icon-hover-white: #fff;
+$buttons-secondary-icon-hover-light: #fff;
+$buttons-secondary-icon-hover-dark: #6929ff;
+$buttons-tertiary-icon-white: #6929ff;
+$buttons-tertiary-icon-light: #6929ff;
+$buttons-tertiary-icon-dark: #fff;
+$buttons-tertiary-icon-hover-white: #9061ff;
+$buttons-tertiary-icon-hover-light: #9061ff;
+$buttons-tertiary-icon-hover-dark: #9061ff;
+$graphics-shape-1-white: #5189b1;
+$graphics-shape-1-light: #5189b1;
+$graphics-shape-1-dark: #5189b1;
+$graphics-star-rating-white: #f3c63c;
+$graphics-star-rating-light: #f3c63c;
+$graphics-star-rating-dark: #f3c63c;
+$graphics-shape-2-white: #8db2cc;
+$graphics-shape-2-light: #8db2cc;
+$graphics-shape-2-dark: #8db2cc;
+$buttons-icon-button-bg-white: #6929ff;
+$buttons-icon-button-bg-light: #6929ff;
+$buttons-icon-button-bg-dark: #6929ff;
+$buttons-icon-button-border-white: rgba(255, 255, 255, 0);
+$buttons-icon-button-border-light: rgba(255, 255, 255, 0);
+$buttons-icon-button-border-dark: rgba(255, 255, 255, 0);
+$buttons-icon-button-icon-white: #fff;
+$buttons-icon-button-icon-light: #fff;
+$buttons-icon-button-icon-dark: #fff;
+$buttons-icon-button-bg-hover-white: #9061ff;
+$buttons-icon-button-bg-hover-light: #9061ff;
+$buttons-icon-button-bg-hover-dark: #9061ff;
+$buttons-icon-button-border-hover-white: #9061ff;
+$buttons-icon-button-border-hover-light: #9061ff;
+$buttons-icon-button-border-hover-dark: #9061ff;
+$buttons-icon-button-icon-hover-white: #fff;
+$buttons-icon-button-icon-hover-light: #fff;
+$buttons-icon-button-icon-hover-dark: #fff;
+$graphics-iconography-white: #5189b1;
+$graphics-iconography-light: #5189b1;
+$graphics-iconography-dark: #fff;
+$text-menu-item-current-page-white: #6929ff;
+$text-menu-item-current-page-light: #6929ff;
+$text-menu-item-current-page-dark: rgba(255, 255, 255, 0.7);
+$general-box-bg-sticky-media-white: #eff3fb;
+$general-box-bg-sticky-media-light: rgba(45, 49, 111, 0.07);
+$general-box-bg-sticky-media-dark: rgba(0, 0, 0, 0.17);
+$general-form-field-bg-white: #eff3fb;
+$general-form-field-bg-light: #fff;
+$general-form-field-bg-dark: #fff;
+$text-form-placeholder-text-white: #424449;
+$text-form-placeholder-text-light: #424449;
+$text-form-placeholder-text-dark: #424449;
+$graphics-stepped-tabs-complete-white: #6929ff;
+$graphics-stepped-tabs-complete-light: #6929ff;
+$graphics-stepped-tabs-complete-dark: #fff;
+$general-overlay-gradient-alt-stop-1-white: #fff;
+$general-overlay-gradient-alt-stop-1-light: #eff3fb;
+$general-overlay-gradient-alt-stop-1-dark: #0b2266;
+$general-overlay-gradient-alt-stop-2-white: rgba(255, 255, 255, 0.7);
+$general-overlay-gradient-alt-stop-2-light: rgba(239, 243, 251, 0.7);
+$general-overlay-gradient-alt-stop-2-dark: rgba(11, 34, 102, 0.7);
+
+// Paints Map
+$paints: (
+	"text-link": (
+		"white": $text-link-white,
+		"light": $text-link-light,
+		"dark": $text-link-dark
+	),
+	"buttons-primary-bg-hover": (
+		"white": $buttons-primary-bg-hover-white,
+		"light": $buttons-primary-bg-hover-light,
+		"dark": $buttons-primary-bg-hover-dark
+	),
+	"buttons-primary-bg": (
+		"white": $buttons-primary-bg-white,
+		"light": $buttons-primary-bg-light,
+		"dark": $buttons-primary-bg-dark
+	),
+	"general-line": (
+		"white": $general-line-white,
+		"light": $general-line-light,
+		"dark": $general-line-dark
+	),
+	"text-link-hover": (
+		"white": $text-link-hover-white,
+		"light": $text-link-hover-light,
+		"dark": $text-link-hover-dark
+	),
+	"text-heading": (
+		"white": $text-heading-white,
+		"light": $text-heading-light,
+		"dark": $text-heading-dark
+	),
+	"text-body": (
+		"white": $text-body-white,
+		"light": $text-body-light,
+		"dark": $text-body-dark
+	),
+	"general-bg": (
+		"white": $general-bg-white,
+		"light": $general-bg-light,
+		"dark": $general-bg-dark
+	),
+	"general-body-bg": (
+		"white": $general-body-bg-white,
+		"light": $general-body-bg-light,
+		"dark": $general-body-bg-dark
+	),
+	"text-menu-item": (
+		"white": $text-menu-item-white,
+		"light": $text-menu-item-light,
+		"dark": $text-menu-item-dark
+	),
+	"text-warning": (
+		"white": $text-warning-white,
+		"light": $text-warning-light,
+		"dark": $text-warning-dark
+	),
+	"text-success": (
+		"white": $text-success-white,
+		"light": $text-success-light,
+		"dark": $text-success-dark
+	),
+	"general-accent": (
+		"white": $general-accent-white,
+		"light": $general-accent-light,
+		"dark": $general-accent-dark
+	),
+	"general-overlay-solid": (
+		"white": $general-overlay-solid-white,
+		"light": $general-overlay-solid-light,
+		"dark": $general-overlay-solid-dark
+	),
+	"general-overlay-gradient-stop-1": (
+		"white": $general-overlay-gradient-stop-1-white,
+		"light": $general-overlay-gradient-stop-1-light,
+		"dark": $general-overlay-gradient-stop-1-dark
+	),
+	"general-overlay-gradient-stop-2": (
+		"white": $general-overlay-gradient-stop-2-white,
+		"light": $general-overlay-gradient-stop-2-light,
+		"dark": $general-overlay-gradient-stop-2-dark
+	),
+	"buttons-primary-border": (
+		"white": $buttons-primary-border-white,
+		"light": $buttons-primary-border-light,
+		"dark": $buttons-primary-border-dark
+	),
+	"buttons-primary-border-hover": (
+		"white": $buttons-primary-border-hover-white,
+		"light": $buttons-primary-border-hover-light,
+		"dark": $buttons-primary-border-hover-dark
+	),
+	"buttons-primary-text-hover": (
+		"white": $buttons-primary-text-hover-white,
+		"light": $buttons-primary-text-hover-light,
+		"dark": $buttons-primary-text-hover-dark
+	),
+	"buttons-primary-text": (
+		"white": $buttons-primary-text-white,
+		"light": $buttons-primary-text-light,
+		"dark": $buttons-primary-text-dark
+	),
+	"buttons-secondary-bg": (
+		"white": $buttons-secondary-bg-white,
+		"light": $buttons-secondary-bg-light,
+		"dark": $buttons-secondary-bg-dark
+	),
+	"buttons-secondary-bg-hover": (
+		"white": $buttons-secondary-bg-hover-white,
+		"light": $buttons-secondary-bg-hover-light,
+		"dark": $buttons-secondary-bg-hover-dark
+	),
+	"buttons-secondary-border": (
+		"white": $buttons-secondary-border-white,
+		"light": $buttons-secondary-border-light,
+		"dark": $buttons-secondary-border-dark
+	),
+	"buttons-secondary-border-hover": (
+		"white": $buttons-secondary-border-hover-white,
+		"light": $buttons-secondary-border-hover-light,
+		"dark": $buttons-secondary-border-hover-dark
+	),
+	"buttons-secondary-text": (
+		"white": $buttons-secondary-text-white,
+		"light": $buttons-secondary-text-light,
+		"dark": $buttons-secondary-text-dark
+	),
+	"buttons-secondary-text-hover": (
+		"white": $buttons-secondary-text-hover-white,
+		"light": $buttons-secondary-text-hover-light,
+		"dark": $buttons-secondary-text-hover-dark
+	),
+	"general-action": (
+		"white": $general-action-white,
+		"light": $general-action-light,
+		"dark": $general-action-dark
+	),
+	"general-action-hover": (
+		"white": $general-action-hover-white,
+		"light": $general-action-hover-light,
+		"dark": $general-action-hover-dark
+	),
+	"text-menu-item-hover": (
+		"white": $text-menu-item-hover-white,
+		"light": $text-menu-item-hover-light,
+		"dark": $text-menu-item-hover-dark
+	),
+	"general-box-bg": (
+		"white": $general-box-bg-white,
+		"light": $general-box-bg-light,
+		"dark": $general-box-bg-dark
+	),
+	"buttons-tertiary-bg": (
+		"white": $buttons-tertiary-bg-white,
+		"light": $buttons-tertiary-bg-light,
+		"dark": $buttons-tertiary-bg-dark
+	),
+	"buttons-tertiary-text": (
+		"white": $buttons-tertiary-text-white,
+		"light": $buttons-tertiary-text-light,
+		"dark": $buttons-tertiary-text-dark
+	),
+	"buttons-tertiary-border": (
+		"white": $buttons-tertiary-border-white,
+		"light": $buttons-tertiary-border-light,
+		"dark": $buttons-tertiary-border-dark
+	),
+	"buttons-tertiary-bg-hover": (
+		"white": $buttons-tertiary-bg-hover-white,
+		"light": $buttons-tertiary-bg-hover-light,
+		"dark": $buttons-tertiary-bg-hover-dark
+	),
+	"buttons-tertiary-text-hover": (
+		"white": $buttons-tertiary-text-hover-white,
+		"light": $buttons-tertiary-text-hover-light,
+		"dark": $buttons-tertiary-text-hover-dark
+	),
+	"buttons-tertiary-border-hover": (
+		"white": $buttons-tertiary-border-hover-white,
+		"light": $buttons-tertiary-border-hover-light,
+		"dark": $buttons-tertiary-border-hover-dark
+	),
+	"dark-element-visibility": (
+		"dark": $dark-element-visibility-dark
+	),
+	"light-element-visibility": (
+		"white": $light-element-visibility-white,
+		"light": $light-element-visibility-light
+	),
+	"text-supertext": (
+		"white": $text-supertext-white,
+		"light": $text-supertext-light,
+		"dark": $text-supertext-dark
+	),
+	"buttons-primary-icon": (
+		"white": $buttons-primary-icon-white,
+		"light": $buttons-primary-icon-light,
+		"dark": $buttons-primary-icon-dark
+	),
+	"buttons-primary-icon-hover": (
+		"white": $buttons-primary-icon-hover-white,
+		"light": $buttons-primary-icon-hover-light,
+		"dark": $buttons-primary-icon-hover-dark
+	),
+	"buttons-secondary-icon": (
+		"white": $buttons-secondary-icon-white,
+		"light": $buttons-secondary-icon-light,
+		"dark": $buttons-secondary-icon-dark
+	),
+	"buttons-secondary-icon-hover": (
+		"white": $buttons-secondary-icon-hover-white,
+		"light": $buttons-secondary-icon-hover-light,
+		"dark": $buttons-secondary-icon-hover-dark
+	),
+	"buttons-tertiary-icon": (
+		"white": $buttons-tertiary-icon-white,
+		"light": $buttons-tertiary-icon-light,
+		"dark": $buttons-tertiary-icon-dark
+	),
+	"buttons-tertiary-icon-hover": (
+		"white": $buttons-tertiary-icon-hover-white,
+		"light": $buttons-tertiary-icon-hover-light,
+		"dark": $buttons-tertiary-icon-hover-dark
+	),
+	"graphics-shape-1": (
+		"white": $graphics-shape-1-white,
+		"light": $graphics-shape-1-light,
+		"dark": $graphics-shape-1-dark
+	),
+	"graphics-star-rating": (
+		"white": $graphics-star-rating-white,
+		"light": $graphics-star-rating-light,
+		"dark": $graphics-star-rating-dark
+	),
+	"graphics-shape-2": (
+		"white": $graphics-shape-2-white,
+		"light": $graphics-shape-2-light,
+		"dark": $graphics-shape-2-dark
+	),
+	"buttons-icon-button-bg": (
+		"white": $buttons-icon-button-bg-white,
+		"light": $buttons-icon-button-bg-light,
+		"dark": $buttons-icon-button-bg-dark
+	),
+	"buttons-icon-button-border": (
+		"white": $buttons-icon-button-border-white,
+		"light": $buttons-icon-button-border-light,
+		"dark": $buttons-icon-button-border-dark
+	),
+	"buttons-icon-button-icon": (
+		"white": $buttons-icon-button-icon-white,
+		"light": $buttons-icon-button-icon-light,
+		"dark": $buttons-icon-button-icon-dark
+	),
+	"buttons-icon-button-bg-hover": (
+		"white": $buttons-icon-button-bg-hover-white,
+		"light": $buttons-icon-button-bg-hover-light,
+		"dark": $buttons-icon-button-bg-hover-dark
+	),
+	"buttons-icon-button-border-hover": (
+		"white": $buttons-icon-button-border-hover-white,
+		"light": $buttons-icon-button-border-hover-light,
+		"dark": $buttons-icon-button-border-hover-dark
+	),
+	"buttons-icon-button-icon-hover": (
+		"white": $buttons-icon-button-icon-hover-white,
+		"light": $buttons-icon-button-icon-hover-light,
+		"dark": $buttons-icon-button-icon-hover-dark
+	),
+	"graphics-iconography": (
+		"white": $graphics-iconography-white,
+		"light": $graphics-iconography-light,
+		"dark": $graphics-iconography-dark
+	),
+	"text-menu-item-current-page": (
+		"white": $text-menu-item-current-page-white,
+		"light": $text-menu-item-current-page-light,
+		"dark": $text-menu-item-current-page-dark
+	),
+	"general-box-bg-sticky-media": (
+		"white": $general-box-bg-sticky-media-white,
+		"light": $general-box-bg-sticky-media-light,
+		"dark": $general-box-bg-sticky-media-dark
+	),
+	"general-form-field-bg": (
+		"white": $general-form-field-bg-white,
+		"light": $general-form-field-bg-light,
+		"dark": $general-form-field-bg-dark
+	),
+	"text-form-placeholder-text": (
+		"white": $text-form-placeholder-text-white,
+		"light": $text-form-placeholder-text-light,
+		"dark": $text-form-placeholder-text-dark
+	),
+	"graphics-stepped-tabs-complete": (
+		"white": $graphics-stepped-tabs-complete-white,
+		"light": $graphics-stepped-tabs-complete-light,
+		"dark": $graphics-stepped-tabs-complete-dark
+	),
+	"general-overlay-gradient-alt-stop-1": (
+		"white": $general-overlay-gradient-alt-stop-1-white,
+		"light": $general-overlay-gradient-alt-stop-1-light,
+		"dark": $general-overlay-gradient-alt-stop-1-dark
+	),
+	"general-overlay-gradient-alt-stop-2": (
+		"white": $general-overlay-gradient-alt-stop-2-white,
+		"light": $general-overlay-gradient-alt-stop-2-light,
+		"dark": $general-overlay-gradient-alt-stop-2-dark
+	)
+);
+
+// Themes
+$themes: (
+	(
+		"name": "White",
+		"slug": "white",
+		"color": "#ffffff"
+	),
+	(
+		"name": "Light",
+		"slug": "light",
+		"color": "#eff3fb"
+	),
+	(
+		"name": "Dark",
+		"slug": "dark",
+		"color": "#0b2266"
+	)
+);
+
+// Other Figma Variables
+$wireframe-filter-on: 100;
+$pagefilterheight-on: 98816;
+$wireframe-image-on: true;
+$design-image-off: true;
+$brand-secondary-purple-2: #9061ff;
+$brand-secondary-navy-semi-transparent: rgba(11, 34, 102, 0.8);
+$brand-primary-navy: #0b2266;
+$brand-secondary-blue-3: #8ab9db;
+$brand-secondary-transparent: rgba(255, 255, 255, 0);
+$brand-secondary-neutral-2: #d7d9e8;
+$brand-secondary-neutral-1: #eff3fb;
+$brand-secondary-white: #fff;
+$brand-secondary-neutral-3: #b0b4cf;
+$brand-primary-blue: #5189b1;
+$brand-secondary-navy-2: #102e85;
+$brand-secondary-blue-2: #8db2cc;
+$brand-primary-purple: #6929ff;
+$brand-secondary-neutral-4: #424449;
+$brand-secondary-navy-3: #324fa3;
+$brand-secondary-purple-3: #b595ff;
+$brand-tertiary-green: #50b133;
+$brand-tertiary-red: #e51332;
+$brand-tertiary-yellow: #f3c63c;
+$content-column-width-1: 1304;
+$content-column-width-2: 628;
+$content-column-width-3: 402;
+$content-column-width-4: 290;
+$fullwidth-cta-card-width-1: 1416;
+$fullwidth-cta-card-width-2: 702;
+$fullwidth-cta-card-width-3: 464;
+$fullwidth-cta-card-width-4: 345;
+
+// Reboot default values.
+$body-color: $text-body-white;
+$body-bg: $general-bg-white;
+$body-heading: $text-heading-white;
+$font-family-body: $font-family-body;
+
+// Container & breakpoint variables.
+$page-margins-desktop: 68;
+$page-margins: $spacing-page-margins;
+$gutter-desktop: 48;
+$gutter: $spacing-column-gap;
+$container-max-width: 1920px;
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1320px,
+) !default;

@@ -1,0 +1,68 @@
+@use "helpers/init" as *;
+
+.video-control {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	border: 0;
+	background-color: transparent;
+
+	i {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: r(60);
+		height: r(60);
+		color: $buttons-primary-text-white;
+		border-radius: 50%;
+		background-color: $buttons-primary-bg-white;
+		transition: background-color 300ms ease, transform 300ms ease;
+
+		@include media-breakpoint-up(md) {
+			transform: scale(1.5);
+		}
+
+		&::after {
+			font-size: r(24);
+		}
+	}
+
+	span {
+		@include body;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: inline-block;
+		margin-bottom: 0;
+		color: $buttons-primary-text-white;
+		transform: translate(-50%, #{r(40)});
+		transition: opacity 300ms ease;
+
+		@include media-breakpoint-up(md) {
+			opacity: 0;
+			transform: translate(-50%, #{r(52)});
+			pointer-events: none;
+		}
+	}
+
+	&:hover {
+		i {
+			background-color: $buttons-primary-bg-hover-white;
+			transform: scale(1.1);
+
+			@include media-breakpoint-up(md) {
+				transform: scale(1.6);
+			}
+		}
+
+		span {
+			@include media-breakpoint-up(md) {
+				opacity: 1;
+			}
+		}
+	}
+}
+

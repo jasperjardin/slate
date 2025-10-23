@@ -1,0 +1,38 @@
+{
+	"title": "Tabs",
+	"name": "tabs",
+	"description": "",
+	"icon": "menu-alt3",
+	"category": "text",
+	"apiVersion": 2,
+	"keywords": ["accordion"],
+	"providesContext": {
+		"tabs_fields": "data"
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"contentWidth": true,
+		"multiple": true,
+		"theme": true,
+		"spacing": {
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"script": "file:./js/script.ts",
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

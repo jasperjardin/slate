@@ -1,0 +1,122 @@
+@use "helpers/init" as *;
+
+.block-sticky-media-content-split {
+	$self: &;
+	display: grid;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	isolation: isolate;
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns:
+			minmax(#{$spacing-page-margins}, 1fr)
+			minmax(0, calc(#{cols-max(6)} + (#{$gutter-desktop} * 0.5px)))
+			minmax(0, calc(#{cols-max(6)} + (#{$gutter-desktop} * 0.5px)))
+			minmax(#{$spacing-page-margins}, 1fr);
+
+		.block-content-media-split {
+			padding-block: $spacing-xl;
+
+			.container {
+				min-height: 100vh;
+			}
+
+			.block-media {
+				visibility: hidden;
+				pointer-events: none;
+			}
+
+			.block-content {
+				padding-left: $spacing-page-margins;
+			}
+		}
+
+		.component-media {
+			justify-content: center;
+			width: 100%;
+			max-width: calc(#{$container-max-width} * 0.5);
+			min-height: 100vh;
+			margin-left: auto;
+			padding-inline: $spacing-page-margins;
+
+			&__image {
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		&.alignright {
+			#{$self}__sticky-content {
+				grid-column: 3 / 5;
+				border-top-left-radius: $border-radius-lg;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: $border-radius-lg;
+			}
+
+			.block-content-media-split {
+				.block-content {
+					order: 1 !important;
+					padding-right: $spacing-page-margins;
+					padding-left: 0;
+				}
+
+				.block-media {
+					order: 2 !important;
+				}
+			}
+
+			.component-media {
+				margin-left: 0;
+			}
+		}
+	}
+
+	&__content {
+		grid-row: 1 / -1;
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		row-gap: $spacing-xl;
+
+		@include media-breakpoint-down(md) {
+			.acf-block {
+				padding-block: 0;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			display: block;
+		}
+
+		.block-content-media-split {
+			.container {
+				gap: $spacing-margin-bottom-media;
+
+				@include media-breakpoint-up(md) {
+					gap: 0;
+				}
+			}
+		}
+	}
+
+	&__sticky-content {
+		z-index: 1;
+		display: none;
+		border-top-right-radius: $border-radius-lg;
+		border-bottom-right-radius: $border-radius-lg;
+		background: var(--general-box-bg);
+
+		@include media-breakpoint-up(md) {
+			grid-row: 1 / -1;
+			grid-column: 1 / 3;
+			display: block;
+		}
+	}
+
+	&__images-container {
+		position: sticky;
+		top: 0;
+		padding-block: $spacing-xl;
+	}
+}

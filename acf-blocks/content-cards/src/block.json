@@ -1,0 +1,38 @@
+{
+	"title": "Content Cards",
+	"name": "content-cards",
+	"description": "",
+	"icon": "grid-view",
+	"category": "media",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": ["left", "center"],
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": true,
+		"spacing": {
+			"padding": ["top", "bottom"]
+		}
+	},
+	"attributes": {},
+	"styles": [
+		{ "name": "two-columns", "label": "2 Columns", "isDefault": true },
+        { "name": "three-columns", "label": "3 Columns" },
+		{ "name": "four-columns", "label": "4 Columns" }
+	],
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

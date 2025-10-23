@@ -1,0 +1,22 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.block-tabs {
+		&__tabs {
+			@include media-breakpoint-up(md) {
+				display: none;
+			}
+		}
+
+		&--vertical {
+			.block-tabs__content {
+				@include media-breakpoint-up(md) {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

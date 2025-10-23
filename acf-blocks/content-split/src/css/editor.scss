@@ -1,0 +1,48 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.block-content-split {
+		$self: ".block-content-split";
+
+		&.is-style-narrow-right {
+			#{$self}__wrapper {
+				> .acf-innerblocks-container {
+					grid-template-columns: 60% 40%;
+				}
+			}
+		}
+
+		&.is-style-narrow-left {
+			#{$self}__wrapper {
+				> .acf-innerblocks-container {
+					grid-template-columns: 40% 60%;
+				}
+			}
+		}
+
+
+		&__wrapper {
+			display: block;
+
+			> .acf-innerblocks-container {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+
+				> .wp-block-acf-supertext {
+					grid-column: 1 / 3;
+				}
+			}
+		}
+	}
+
+	.block-supertext {
+		> .acf-innerblocks-container {
+			.block-list-appender.wp-block {
+				display: none;
+			}
+		}
+	}
+}

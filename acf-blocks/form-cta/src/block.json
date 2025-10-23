@@ -1,0 +1,44 @@
+{
+	"title": "Form CTA",
+	"name": "form-cta",
+	"description": "",
+	"icon": "feedback",
+	"category": "text",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": true,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"styles": [
+		{ "name": "two-columns", "label": "2 Columns", "isDefault": true },
+        { "name": "one-column", "label": "1 Column" }
+	],
+	"script": [
+		"file:./js/script.ts",
+		"hubspot-forms"
+	],
+	"editorStyle": "file:./css/editor.css",
+	"style": ["file:./css/style.css", "imp-forms"]
+}

@@ -1,0 +1,18 @@
+@use "helpers/init" as *;
+
+.block-image-slider {
+	display: flex;
+	flex-direction: column;
+	overflow-x: clip;
+
+	&--carousel {
+		.image-slider {
+			width: 100%;
+			overflow: visible;
+
+			&__slide {
+				border: none;
+			}
+		}
+	}
+}

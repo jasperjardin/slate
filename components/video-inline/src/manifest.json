@@ -1,0 +1,11 @@
+{
+	"script": [
+		"file:./js/script.ts"
+	],
+	"style": [
+		"file:./css/style.css"
+	],
+	"editorStyle": [
+		"file:./css/editor.css"
+	]
+}

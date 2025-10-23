@@ -1,0 +1,29 @@
+@use "helpers/init" as *;
+
+.block-quote-author {
+	position: relative;
+	margin-bottom: $spacing-margin-bottom-body-norm;
+	padding-left: rv(64, 98.5);
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: flex;
+		width: rv(37, 62.5);
+		height: rv(30, 50);
+		background-image: url("data:image/svg+xml,%3Csvg width='55' height='45' viewBox='0 0 55 45' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.32959 22.3314V44.0679H22.066V22.3314H11.1978C11.1978 22.3314 11.1978 11.4632 22.066 11.4632V0.594971C22.066 0.594971 0.32959 0.594971 0.32959 22.3314ZM54.6707 11.4632V0.594971C54.6707 0.594971 32.9343 0.594971 32.9343 22.3314V44.0679H54.6707V22.3314H43.8025C43.8025 22.3314 43.8025 11.4632 54.6707 11.4632Z' fill='%235189B1'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+	}
+
+	&__content {
+		flex: 1 0 0;
+	}
+
+	p:has(+ .has-body-small-font-size) {
+		margin-bottom: $spacing-3xs;
+	}
+}

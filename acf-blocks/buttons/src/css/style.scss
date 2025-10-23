@@ -1,0 +1,17 @@
+@use "helpers/init" as *;
+
+.block-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	row-gap: $spacing-xs;
+	align-items: center;
+	column-gap: $spacing-sm;
+
+	&.alignright {
+		justify-content: flex-end;
+	}
+
+	&.aligncenter {
+		justify-content: center;
+	}
+}

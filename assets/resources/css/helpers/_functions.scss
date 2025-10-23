@@ -1,0 +1,79 @@
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+@use "sass:meta";
+
+@function strip-units($input) {
+	@return math.div($input, $input * 0 + 1 );
+}
+
+@function px-to-rem($px, $force-unit: false) {
+	$value: math.div(strip-units($px), 16);
+
+	@if (0 == $value and not $force-unit) {
+		@return 0;
+	}
+
+	@return $value * 1rem;
+}
+
+@function r($input, $force-unit: false) {
+	$output: ();
+
+	@each $item in $input {
+		@if ( "auto" == $item ) {
+			$output: list.append($output, $item);
+		} @else {
+			$output: list.append($output, px-to-rem($item, $force-unit));
+		}
+	}
+
+	@return $output;
+}
+
+@function rv($min, $max, $sm: 786px, $lg: 1440px) {
+	$min:       strip-units($min);
+	$max:       strip-units($max);
+	$min-width: strip-units($sm);
+	$max-width: strip-units($lg);
+
+	// If container-width is defined and larger than $lg, scale the max value to the new container-width
+	@if meta.variable-exists(container-max-width) and $container-max-width > $lg {
+		$scale-to-width: strip-units($container-max-width);
+
+		// Calculate the new max value that maintains the same slope
+		$original-slope: math.div($max - $min, $max-width - $min-width);
+		$new-max: $min + $original-slope * ($scale-to-width - $min-width);
+
+		// Update the max-width to the new scale-to value
+		$max-width: $scale-to-width;
+		$max: $new-max;
+	}
+
+	$slope:               math.div($max - $min, $max-width - $min-width);
+	$y-axis-intersection: -$min-width * $slope + $min;
+	$val:                 "#{r($y-axis-intersection)} + #{$slope * 100vw}";
+
+	@if ($min > $max) {
+		@return clamp(#{r($max, true)}, #{$val}, #{r($min, true)});
+	} @else {
+		@return clamp(#{r($min, true)}, #{$val}, #{r($max, true)});
+	}
+}
+
+// SCSS Function to Output CSS Variables for Themes
+@function generate-theme-css($theme-map) {
+	$output: null;
+
+	@each $theme-name, $theme-values in $theme-map {
+		$output: "[data-theme=\"#{$theme-name}\"] {\n";
+
+		@each $key, $value in $theme-values {
+			$output: #{$output} "  --#{$key}: #{$value};\n";
+		}
+
+		$output: #{$output} "}\n";
+	}
+
+	@return $output;
+}

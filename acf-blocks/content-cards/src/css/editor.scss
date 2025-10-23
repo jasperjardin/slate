@@ -1,0 +1,31 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.block-content-cards {
+		$self: &;
+
+		&__wrapper {
+			display: block;
+
+			> .acf-innerblocks-container {
+				display: grid;
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+
+		&.is-style-three-columns {
+			.acf-innerblocks-container {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+		}
+
+		&.is-style-four-columns {
+			.acf-innerblocks-container {
+				grid-template-columns: repeat(4, minmax(0, 1fr));
+			}
+		}
+	}
+}

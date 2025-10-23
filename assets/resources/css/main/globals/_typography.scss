@@ -1,0 +1,121 @@
+@use "helpers/init" as *;
+
+h1,
+.t1,
+.has-t-1-font-size {
+	@include t1;
+}
+
+h2,
+.t2,
+.has-t-2-font-size {
+	@include t2;
+}
+
+h3,
+.t3,
+.has-t-3-font-size {
+	@include t3;
+}
+
+h4,
+.t4,
+.has-t-4-font-size {
+	@include t4;
+}
+
+h5,
+.t5,
+.has-t-5-font-size {
+	@include t5;
+}
+
+h6,
+.t6,
+.has-t-6-font-size {
+	@include t6;
+}
+
+.supertext,
+.has-supertext-font-size {
+	@include supertext;
+}
+
+.supertext-large,
+.has-supertext-large-font-size {
+	@include supertext-large;
+}
+
+.body-extra-small,
+.has-body-extra-small-font-size {
+	@include body-extra-small;
+}
+
+.body-small,
+.has-body-small-font-size {
+	@include body-small;
+}
+
+p,
+.body,
+.has-body-font-size {
+	@include body;
+}
+
+.body-medium,
+.has-body-medium-font-size {
+	@include body-medium;
+}
+
+.action-button-small,
+.has-action-button-small-font-size {
+	@include action-button-small;
+}
+
+.action-button,
+.has-action-button-font-size {
+	@include action-button;
+}
+
+.action-menu-item-small,
+.has-action-menu-item-small-font-size {
+	@include action-menu-item-small;
+}
+
+.action-menu-item,
+.has-action-menu-item-font-size {
+	@include action-menu-item;
+}
+
+.action-menu-item-large,
+.has-action-menu-item-large-font-size {
+	@include action-menu-item-large;
+}
+
+.action-tab-item-small,
+.has-action-tab-item-small-font-size {
+	@include action-tab-item-small;
+}
+
+.action-tab-item-large,
+.has-action-tab-item-large-font-size {
+	@include action-tab-item-large;
+}
+
+.action-accordion,
+.has-action-accordion-font-size {
+	@include action-accordion;
+}
+
+.action-form-label,
+.has-action-form-label-font-size {
+	@include action-form-label;
+}
+
+.action-form-input,
+.has-action-form-input-font-size {
+	@include action-form-input;
+}
+
+// Fonts & weights used
+// Inter:700,400,600

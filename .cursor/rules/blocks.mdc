@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## ACF Blocks
+- MUST run `cp -r tasks/templates/acf-block acf-blocks/[block-name]` when creating a new block.
+- MUST only edit files from the templates. Do not create new files
+- MUST use use class name `block-[block-slug]`
+- IF not using SCSS or TS, remove the entry from the block.json file and the files and folders not in use
+- When using <InnerBlocks /> MUST provide a template and wrap with the helper class "cms". The "cms" class will remove top margin from the first child and bottom margin from the last child

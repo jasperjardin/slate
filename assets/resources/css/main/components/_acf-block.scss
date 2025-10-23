@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "helpers/init" as *;
+
+.acf-block {
+	padding-block: $spacing-3xl;
+	scroll-margin-top: var(--headerHeightFull); //stylelint-disable-line
+}
+
+.page-content > .acf-block,
+.single-content__additional-content > .acf-block {
+	@each $theme in $themes {
+		// Get the slug from each theme map.
+		$slug: map.get($theme, "slug");
+
+		$exceptions: "[data-preserve-padding]";
+
+		&[data-theme="#{$slug}"] + .acf-block[data-theme="#{$slug}"]:not(#{$exceptions}) {
+			padding-top: 0 !important;
+		}
+	}
+}
+
+.has-text-align-left {
+	text-align: left;
+}
+
+.has-text-align-center {
+	text-align: center;
+}
+
+.has-text-align-right {
+	text-align: right;
+}

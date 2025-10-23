@@ -1,0 +1,15 @@
+@use "helpers/init" as *;
+
+.block-post-slider {
+	overflow-x: clip;
+}
+
+.post-slider {
+	display: flex;
+	flex-direction: column;
+	gap: $spacing-md;
+
+	&__slide {
+		height: auto;
+	}
+}

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+	"jsx": "react-jsx",
+    "incremental": true,
+	"allowSyntheticDefaultImports": true,
+	"baseUrl": "./",
+	"paths": {
+		"@globals/*": ["assets/resources/js/globals/*"]
+	}
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
+  "exclude": ["node_modules", "tasks"]
+}

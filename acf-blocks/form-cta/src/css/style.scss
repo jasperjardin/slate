@@ -1,0 +1,57 @@
+@use "helpers/init" as *;
+
+.block-form-cta {
+	$self: &;
+
+	&.is-style-one-column {
+		#{$self}__content,
+		#{$self}__subtitle {
+			text-align: center;
+		}
+
+		#{$self}__form-wrapper {
+			flex-direction: column;
+			align-items: center;
+		}
+
+		#{$self}__content,
+		#{$self}__form,
+		#{$self}__subtitle {
+			@include media-breakpoint-up(md) {
+				width: cols(6);
+				margin-inline: auto;
+			}
+		}
+	}
+
+	&__form-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-xl;
+		justify-content: space-between;
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__supertext {
+		@include supertext;
+	}
+
+	&__content {
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			width: cols(5);
+		}
+	}
+
+	&__form {
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			width: cols(6);
+		}
+	}
+}

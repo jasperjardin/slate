@@ -1,0 +1,39 @@
+{
+	"title": "Icon List Item",
+	"name": "icon-list-item",
+	"description": "",
+	"icon": "art",
+	"category": "icon-list, list, icon, text",
+	"apiVersion": 2,
+	"keywords": [],
+	"parent": [
+		"acf/icon-list"
+	],
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": false,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"editorStyle": "file:./css/editor.css",
+	"style": "file:./css/style.css"
+}

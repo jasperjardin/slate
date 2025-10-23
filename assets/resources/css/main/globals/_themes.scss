@@ -1,0 +1,7 @@
+@use "helpers/init" as *;
+
+[data-theme] {
+	@include theme-vars;
+}
+
+@include output-themes($paints);

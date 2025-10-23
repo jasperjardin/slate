@@ -1,0 +1,68 @@
+@use "helpers/init" as *;
+
+.module-library {
+	position: relative;
+}
+
+.module-library-menu {
+	position: sticky;
+	top: 0;
+	z-index: 999;
+	border-bottom: 1px solid #d7d7d7;
+	background: #fff;
+
+	& {
+		@include admin-bar-top;
+	}
+
+	&__edit-module-link {
+		display: none;
+		margin: r(0 0 15 15);
+
+		&.active {
+			display: block;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+		margin: 0;
+		padding: r(15);
+		list-style-type: none;
+	}
+
+	&__list-item {
+		position: relative;
+		cursor: pointer;
+		user-select: none;
+
+		label {
+			display: inline-block;
+			padding: 2px 5px;
+			color: var(--buttons-secondary-text);
+			font-size: 13px;
+			border: 1px solid var(--buttons-secondary-border);
+			border-radius: 10px;
+			background-color: var(--buttons-secondary-bg);
+		}
+
+		input {
+			position: absolute;
+			top: 0;
+			visibility: hidden;
+		}
+
+		input:checked + label {
+			color: var(--buttons-secondary-text-hover);
+			border: 1px solid var(--buttons-secondary-border-hover);
+			background-color: var(--buttons-secondary-bg-hover);
+		}
+	}
+}
+
+[data-visible="false"] {
+	display: none !important;
+}
+

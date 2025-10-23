@@ -1,0 +1,37 @@
+@use "helpers/init" as *;
+
+$breadcrumbs-margin-block: $spacing-sm;
+
+.breadcrumbs {
+	margin-block: $breadcrumbs-margin-block;
+
+	a,
+	span {
+		@include body-small(false);
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	span:not([class]) {
+		color: var(--text-heading);
+	}
+
+	&__separator {
+		@include icon-font($icon-chevron-right, 12);
+		display: inline-block;
+		margin-inline: $spacing-4xs;
+		color: var(--text-body);
+		opacity: 0.3;
+		transform: translateY(1px);
+	}
+}
+
+.block-breadcrumbs {
+	margin-block: $breadcrumbs-margin-block;
+
+	.breadcrumbs {
+		margin-block: 0;
+	}
+}

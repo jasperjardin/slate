@@ -1,0 +1,36 @@
+// Functions that require variables can be added here.
+@use "variables" as *;
+@use "sass:math";
+
+@function paint($paint-name, $mode: "white") {
+	@if map.has-key($paints, $paint-name) {
+		$paint-values: map.get($paints, $paint-name);
+
+		@if map.has-key($paint-values, $mode) {
+			@return map.get($paint-values, $mode);
+		} @else {
+			@warn "Mode `#{$mode}` not found for paint `#{$paint-name}`. Defaulting to `white`.";
+
+			@return map.get($paint-values, "white");
+		}
+	} @else {
+		@error "Paint `#{$paint-name}` not found in the paints map.";
+	}
+}
+
+@function cols-max($columns: 12, $add-page-margins: false) {
+	$container-width: $container-max-width - (2 * $page-margins-desktop);
+	$column-width: math.div($container-width - (11 * $gutter-desktop), 12);
+
+	@if $add-page-margins {
+		@return ($column-width * $columns) + $gutter-desktop * ($columns - 1) + $page-margins-desktop * 2;
+	} @else {
+		@return ($column-width * $columns) + $gutter-desktop * ($columns - 1);
+	}
+}
+
+@function cols($cols) {
+	$wide: calc(12 / $cols);
+
+	@return calc(100% / #{$wide} - #{$gutter} / #{$wide} * (#{$wide} - 1));
+}

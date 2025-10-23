@@ -1,0 +1,40 @@
+{
+	"title": "Post Slider",
+	"name": "post-slider",
+	"description": "",
+	"icon": "slides",
+	"category": "embed",
+	"apiVersion": 2,
+	"keywords": [],
+	"acf": {
+		"mode": "auto",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"multiple": true,
+		"theme": [
+			"light",
+			"gray"
+		],
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+    "script": ["file:./js/script.ts", "swiperjs"],
+    "editorStyle": "file:./css/editor.css",
+    "style": ["file:./css/style.css", "swiperjs"]
+}

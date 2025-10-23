@@ -1,0 +1,9 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+<rules>
+- MUST use swiperjs for sliders. Include swiperjs as a css/js dependency. Review the components/image-slider for an example to use and enqueue
+- MUST use micromodal for modals. Review components/video-lightbox for an example on how to use and enqueue
+- Forms MUST be powered by Formidable or Hubspot unless otherwise specified.

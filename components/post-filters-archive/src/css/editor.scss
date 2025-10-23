@@ -1,0 +1,22 @@
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	.edit-acf-block {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		padding: 60px;
+		font-weight: 700;
+		border: 2px dashed #ccc;
+		background: #efefef;
+
+		&__title {
+			margin-top: 0 !important;
+			margin-bottom: r(20) !important;
+			color: #333;
+			font-weight: 700;
+		}
+	}
+}

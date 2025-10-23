@@ -1,0 +1,23 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.logo-slider {
+		&__wrapper {
+			display: block !important;
+		}
+
+		&__slides {
+			display: flex !important;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.logo-slide {
+		flex-basis: 16.6666%;
+		flex-shrink: 1;
+	}
+}

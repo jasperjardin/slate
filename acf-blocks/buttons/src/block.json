@@ -1,0 +1,35 @@
+{
+    "title": "Buttons",
+    "name": "buttons",
+    "description" : "",
+    "icon": "button",
+    "category": "text",
+    "apiVersion": 2,
+    "keywords": [],
+    "acf": {
+        "mode": "auto",
+        "renderTemplate": "../block.php",
+		"postTypes": []
+    },
+    "supports": {
+        "align": true,
+        "anchor": true,
+        "alignContent": false,
+        "alignText": false,
+        "multiple": true,
+        "spacing": {
+            "padding": [
+                "top",
+                "bottom"
+            ]
+        }
+    },
+    "attributes": {},
+    "example": {
+        "attributes": {
+            "data": {}
+        }
+    },
+    "editorStyle": "file:./css/editor.css",
+    "style": "file:./css/style.css"
+}

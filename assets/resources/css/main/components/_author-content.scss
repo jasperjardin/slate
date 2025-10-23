@@ -1,0 +1,56 @@
+@use "helpers/init" as *;
+
+.author-content {
+	padding-block: $spacing-2xl;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: $spacing-lg;
+		justify-content: space-between;
+		align-items: center;
+
+		@include media-breakpoint-up(md) {
+			flex-direction: row;
+		}
+	}
+
+	&__img-container {
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			width: cols(5);
+		}
+	}
+
+	&__img {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		border-radius: $border-radius;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	&__content {
+		width: 100%;
+
+		@include media-breakpoint-up(md) {
+			width: cols(6);
+		}
+	}
+
+	&__tag {
+		@include bubble-tag;
+		display: inline-block;
+		margin-bottom: $spacing-sm;
+	}
+
+	&__name {
+		@include t2;
+		margin-bottom: $spacing-md;
+	}
+
+	&__bio {
+		margin-bottom: $spacing-md;
+	}
+}

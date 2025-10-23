@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+### PHP
+- MUST use BEM
+- MUST follow WP Coding standards
+- MUST use array_to_link() for ACF link fields
+- Example: echo array_to_link( $link, 'class-name' );
+- If a component has a background image uploaded in WordPress, don't use background-image
+- MUST use `<?=` for 1 line PHP echo

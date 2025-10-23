@@ -1,0 +1,33 @@
+@use "helpers/init" as *;
+
+.pfa-posts-grid {
+	display: grid;
+	grid-gap: $spacing-lg;
+
+	&:not(:last-child) {
+		margin-bottom: $spacing-lg;
+	}
+
+	@include media-breakpoint-up(md) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	&--search {
+		grid-gap: 0;
+		max-width: cols-max(8);
+		margin-inline: auto;
+		border-top: r(1) solid var(--general-line);
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}
+
+.pfa-posts-table {
+	margin-top: 0;
+
+	@include media-breakpoint-up(md) {
+		margin-top: r(-20);
+	}
+}

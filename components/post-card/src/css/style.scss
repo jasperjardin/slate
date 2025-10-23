@@ -1,0 +1,46 @@
+@use "helpers/init" as *;
+
+.post-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	text-decoration: none;
+	border: 1px solid var(--general-line);
+	border-radius: $border-radius;
+	overflow: hidden;
+
+	&__content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		align-items: flex-start;
+		padding: $spacing-sm;
+		background-color: var(--general-box-bg);
+	}
+
+	&__tag {
+		@include bubble-tag;
+		margin-bottom: $spacing-sm;
+	}
+
+	&__title {
+		@include t5(false);
+		margin: 0;
+	}
+
+	&__excerpt {
+		margin-top: $spacing-xs;
+		margin-bottom: 0;
+		color: var(--text-body);
+	}
+
+	// Use a spacer so we can still use margin-top auto on the button.
+	&__spacer {
+		height: $spacing-sm;
+	}
+
+	&__btn {
+		@include btn-tertiary;
+		margin-top: auto;
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"minimum-stability": "stable",
+    "--base-scripts": {
+		"phpcs": "phpcs",
+		"phpcbf": "phpcbf"
+    },
+	"scripts": {
+		"phpcs": "vendor/bin/phpcs --runtime-set installed_paths vendor/jasperjardin/slate-coding-standards/src/Standards,vendor/wp-coding-standards/wpcs,vendor/phpcsstandards/phpcsextra,vendor/phpcsstandards/phpcsutils",
+		"phpcbf": "vendor/bin/phpcbf --runtime-set installed_paths vendor/jasperjardin/slate-coding-standards/src/Standards,vendor/wp-coding-standards/wpcs,vendor/phpcsstandards/phpcsextra,vendor/phpcsstandards/phpcsutils"
+	},
+    "require-dev": {
+		"squizlabs/php_codesniffer": "^3.8",
+		"dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+		"jasperjardin/slate-coding-standards": "v0.0.1.x-dev"
+	},
+	"autoload": {
+		"psr-4": {
+			"Slate\\": ""
+		},
+		"classmap": [""]
+	},
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/jasperjardin/slate-coding-standards"
+		}
+	]
+}

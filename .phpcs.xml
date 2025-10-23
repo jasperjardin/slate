@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<ruleset name="Slate PHP Standards">
+
+	<description>Slate theme PHP coding standards</description>
+
+	<!-- What to scan -->
+	<file>.</file>
+	<exclude-pattern>/vendor/</exclude-pattern>
+	<exclude-pattern>/wp/</exclude-pattern>
+	<exclude-pattern>/node_modules/</exclude-pattern>
+	<exclude-pattern>/tasks/templates/</exclude-pattern>
+	<exclude-pattern>*.asset.php</exclude-pattern>
+
+	<arg value="sp"/> <!-- Show sniff and progress -->
+	<arg name="basepath" value="./"/><!-- Strip the file paths down to the relevant bit -->
+	<arg name="colors"/>
+	<arg name="extensions" value="php"/>
+	<arg name="parallel" value="8"/><!-- Enables parallel processing when available for faster results. -->
+
+	<config name="installed_paths" value="./vendor/jasperjardin/slate-coding-standards/src/Standards,./vendor/wp-coding-standards/wpcs,./vendor/phpcsstandards/phpcsextra,./vendor/phpcsstandards/phpcsutils"/>
+	<!-- Rules: Use SlateTheme standards -->
+	<rule ref="SlateTheme" />
+
+	<!-- Theme-specific configurations -->
+	<rule ref="WordPress.Security.EscapeOutput">
+		<properties>
+			<property name="customAutoEscapedFunctions" type="array">
+				<element value="array_to_link"/>
+				<element value="get_svg"/>
+				<element value="get_autoplay_ready_embed"/>
+				<element value="imp_get_autoplay_embed"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Exclude deprecated sniffs -->
+	<rule ref="Generic.Functions.CallTimePassByReference">
+		<exclude name="Generic.Functions.CallTimePassByReference"/>
+	</rule>
+
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true" />
+		</properties>
+	</rule>
+</ruleset>

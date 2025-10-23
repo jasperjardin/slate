@@ -1,0 +1,41 @@
+@use "helpers/init" as *;
+
+.social-share {
+	@include action-button(false);
+	display: flex;
+	gap: $spacing-sm;
+	justify-content: flex-start;
+	padding-block: r(22.5);
+	color: var(--text-heading);
+
+	&__icons {
+		display: flex;
+		gap: r(12);
+	}
+}
+
+.icon-social {
+	display: flex;
+	color: var(--text-heading);
+	text-decoration: none;
+
+	&:hover {
+		color: var(--text-link-hover);
+	}
+
+	&--facebook {
+		@include icon-font($icon-facebook, 24);
+	}
+
+	&--x {
+		@include icon-font($icon-x-twitter, 24);
+	}
+
+	&--linkedin {
+		@include icon-font($icon-linkedin, 24);
+	}
+
+	&--email {
+		@include icon-font($icon-email, 24);
+	}
+}

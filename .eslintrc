@@ -1,0 +1,29 @@
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint"],
+	"env": {
+		"browser": true,
+		"es6": true,
+		"jest": true
+	},
+	"extends": ["plugin:@wordpress/eslint-plugin/recommended", "plugin:@typescript-eslint/recommended"],
+	"ignorePatterns": [
+		"dist/**/*.js",
+		"tasks/**/*.js",
+		"vendor/**/*.js"
+	],
+	"rules": {
+		"max-len": "off",
+		"camelcase": ["error", {"allow": ["WP_*"]}],
+		"react-hooks/exhaustive-deps": "off"
+	},
+	"settings": {
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": "./tsconfig.json"
+			}
+		}
+	}
+}

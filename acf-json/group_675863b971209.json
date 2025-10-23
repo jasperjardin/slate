@@ -1,0 +1,53 @@
+{
+	"key": "group_675863b971209",
+	"title": "Block: Tabs",
+	"fields": [
+		{
+			"key": "field_675863b99531d",
+			"label": "Desktop Display",
+			"name": "desktop_display",
+			"aria-label": "",
+			"type": "select",
+			"instructions": "",
+			"required": 0,
+			"conditional_logic": 0,
+			"wrapper": {
+				"width": "",
+				"class": "",
+				"id": ""
+			},
+			"choices": {
+				"accordion": "Accordion",
+				"vertical": "Vertical Tabs",
+				"inline": "Inline Tabs"
+			},
+			"default_value": "accordion",
+			"return_format": "value",
+			"multiple": 0,
+			"allow_null": 0,
+			"allow_in_bindings": 0,
+			"ui": 0,
+			"ajax": 0,
+			"placeholder": ""
+		}
+	],
+	"location": [
+		[
+			{
+				"param": "block",
+				"operator": "==",
+				"value": "acf\/tabs"
+			}
+		]
+	],
+	"menu_order": 0,
+	"position": "normal",
+	"style": "default",
+	"label_placement": "top",
+	"instruction_placement": "label",
+	"hide_on_screen": "",
+	"active": true,
+	"description": "",
+	"show_in_rest": 0,
+	"modified": 1733851783
+}

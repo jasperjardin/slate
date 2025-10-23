@@ -1,0 +1,129 @@
+@use "helpers/init" as *;
+
+.block-content-cards {
+	$self: &;
+
+	&.aligncenter {
+		.block-content-card {
+			&__content {
+				> * {
+					text-align: center;
+				}
+
+				.block-buttons {
+					justify-content: center;
+				}
+			}
+
+			&__icon {
+				margin-inline: auto;
+			}
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		&.is-style-three-columns {
+			#{$self}__wrapper {
+				grid-template-columns: repeat(3, minmax(0, 1fr));
+			}
+		}
+
+		&.is-style-four-columns {
+			#{$self}__wrapper {
+				grid-template-columns: repeat(4, minmax(0, 1fr));
+			}
+		}
+	}
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: repeat(1, minmax(0, 1fr));
+		gap: $spacing-column-gap;
+
+		@include media-breakpoint-up(md) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+}
+
+.block-content-card {
+	$self: &;
+	border-radius: $border-radius;
+	background-color: var(--general-box-bg);
+	overflow: hidden;
+
+	&--show-icon-bg-color {
+		#{$self}__icon {
+			border: 1px solid var(--general-line);
+			background-color: var(--general-bg);
+
+			[class^="icon-"] {
+				color: var(--graphics-iconography);
+			}
+		}
+	}
+
+	&--display-borderless {
+		background-color: transparent;
+
+		#{$self}__img-container img {
+			border-radius: $border-radius;
+		}
+
+		#{$self}__content {
+			padding: $spacing-margin-bottom-media 0 0;
+		}
+
+		.block-buttons {
+			justify-content: center;
+		}
+
+		.btn-tertiary {
+			border-color: transparent;
+		}
+	}
+
+	&__content {
+		padding: $spacing-md;
+
+		> * {
+			text-align: left;
+		}
+
+		.block-buttons {
+			justify-content: flex-start;
+
+			[class*="btn-"] {
+				@include btn-small;
+			}
+		}
+	}
+
+	&__img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		aspect-ratio: 3 / 2;
+	}
+
+	&__icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: r(85);
+		height: r(85);
+		margin-bottom: $spacing-md;
+		border-radius: $border-radius;
+		background-color: transparent;
+
+		[class^="icon-"] {
+			display: flex;
+			color: var(--general-accent);
+			font-size: r(50);
+		}
+	}
+
+	[class*="btn-"] {
+		@include btn-small;
+	}
+}

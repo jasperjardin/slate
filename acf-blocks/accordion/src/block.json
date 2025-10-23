@@ -1,0 +1,42 @@
+{
+	"title": "Accordion",
+	"name": "accordion",
+	"description": "",
+	"icon": "menu-alt3",
+	"category": "text",
+	"apiVersion": 2,
+	"keywords": ["accordion", "tabs"],
+	"parent": ["acf/content"],
+	"providesContext": {
+		"tabs_fields": "data"
+	},
+	"acf": {
+		"mode": "preview",
+		"renderTemplate": "../block.php",
+		"postTypes": []
+	},
+	"supports": {
+		"align": false,
+		"anchor": true,
+		"alignContent": false,
+		"alignText": false,
+		"contentWidth": true,
+		"multiple": true,
+		"theme": true,
+		"spacing": {
+			"padding": [
+				"top",
+				"bottom"
+			]
+		}
+	},
+	"attributes": {},
+	"example": {
+		"attributes": {
+			"data": {}
+		}
+	},
+	"script": ["acf-tabs-script"],
+	"editorStyle": ["acf-tabs-editor-style"],
+	"style": ["acf-tabs-style"]
+}

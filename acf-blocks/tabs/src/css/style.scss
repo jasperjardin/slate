@@ -1,0 +1,120 @@
+@use "helpers/init" as *;
+
+.block-tabs {
+	$self: &;
+
+	> .container {
+		@include media-breakpoint-down(md) {
+			padding-inline: 0;
+		}
+	}
+
+	&__inner {
+		#{ $self }--vertical & {
+			@include media-breakpoint-up(md) {
+				display: flex;
+				gap: $gutter;
+			}
+		}
+
+		#{ $self }--inline & {
+			@include media-breakpoint-up(md) {
+				padding: $spacing-sm $spacing-xl $spacing-xl;
+				border-radius: $border-radius;
+				background-color: var(--general-box-bg);
+			}
+		}
+	}
+
+	&__tabs {
+		display: none;
+
+		@include media-breakpoint-up(md) {
+			display: block;
+		}
+
+		#{ $self }--vertical & {
+			@include media-breakpoint-up(md) {
+				width: cols(5);
+			}
+		}
+
+		#{ $self }--inline & {
+			@include media-breakpoint-up(md) {
+				margin-bottom: $spacing-xl;
+				border-bottom: r(1) solid var(--general-line);
+			}
+		}
+	}
+
+	&__tab {
+		position: relative;
+		transition: color 400ms ease;
+
+		#{ $self }--vertical & {
+			color: var(--text-heading);
+
+			@include media-breakpoint-up(md) {
+				@include action-tab-item-large(false);
+				width: 100%;
+				margin-bottom: $spacing-xs;
+				padding: 0;
+				color: var(--buttons-tertiary-text);
+				text-align: left;
+				border: 0;
+				background-color: transparent;
+				opacity: 0.4;
+				appearance: none;
+			}
+
+			&:last-child {
+				@include media-breakpoint-up(md) {
+					margin-bottom: 0;
+				}
+			}
+
+			&--expanded {
+				color: var(--buttons-tertiary-text);
+				opacity: 1;
+			}
+		}
+
+		#{ $self }--inline & {
+			@include media-breakpoint-up(md) {
+				@include action-tab-item-small(false);
+				padding: $spacing-xs $spacing-sm;
+				color: var(--text-heading);
+				border: 0;
+				background-color: transparent;
+				appearance: none;
+			}
+
+			&--expanded {
+				@include media-breakpoint-up(md) {
+					color: var(--text-link);
+					font-weight: 600;
+				}
+
+				&::after {
+					content: "";
+					position: absolute;
+					top: 100%;
+					left: 0;
+					width: 100%;
+					height: r(1);
+					background-color: var(--text-link);
+				}
+			}
+		}
+	}
+
+	&__content {
+		#{ $self }--vertical & {
+			@include media-breakpoint-up(md) {
+				width: cols(7);
+				border-radius: $border-radius;
+				background-color: var(--general-bg);
+			}
+		}
+	}
+}

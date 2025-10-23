@@ -1,0 +1,124 @@
+@use "helpers/init" as *;
+
+.block-tab {
+	$self: &;
+	border-top: 1px solid var(--general-line);
+	transition: background-color 400ms ease;
+
+	.block-tabs--vertical & {
+		border-radius: $border-radius;
+		background-color: var(--general-box-bg);
+	}
+
+	&--expanded {
+		@include media-breakpoint-down(md) {
+			background-color: var(--general-bg);
+		}
+	}
+
+	&:last-child {
+		border-bottom: 1px solid var(--general-line);
+	}
+
+	.block-tabs--vertical &,
+	.block-tabs--inline & {
+		@include media-breakpoint-up(md) {
+			border-top: 0;
+		}
+
+		&:last-child {
+			@include media-breakpoint-up(md) {
+				border-bottom: 0;
+			}
+		}
+	}
+
+	&__top {
+		position: relative;
+		z-index: 1;
+		display: block;
+		display: flex;
+		gap: $spacing-sm;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: $spacing-sm $spacing-md;
+		border: 0;
+		background-color: transparent;
+		appearance: none;
+
+		.block-tabs--vertical &,
+		.block-tabs--inline & {
+			@include media-breakpoint-up(md) {
+				display: none;
+			}
+		}
+	}
+
+	&__control {
+		position: relative;
+		flex-shrink: 0;
+		width: r(24);
+		height: r(24);
+
+		&::after,
+		&::before {
+			@include icon-font($icon-minus, 24, false);
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: block;
+			color: var(--buttons-tertiary-text);
+			transition: transform 0.4s;
+		}
+
+		&::before {
+			transform: rotate(90deg);
+		}
+
+		&::after {
+			transform: rotate(-180deg);
+		}
+
+		#{ $self }--expanded & {
+			&::before {
+				transform: rotate(0deg);
+			}
+
+			&::after {
+				transform: rotate(0deg);
+			}
+		}
+	}
+
+	&__title {
+		@include t6(false);
+		margin: 0;
+
+		#{ $self }--expanded & {
+			color: var(--text-link);
+		}
+
+		.block-tabs--accordion #{ $self }--expanded & {
+			color: var(--buttons-tertiary-text);
+		}
+	}
+
+	&__collapsable {
+		display: none;
+
+		#{ $self }--expanded & {
+			display: block;
+		}
+	}
+
+	&__content {
+		padding: $spacing-md;
+
+		.block-tabs--inline & {
+			@include media-breakpoint-up(md) {
+				padding: 0;
+			}
+		}
+	}
+}

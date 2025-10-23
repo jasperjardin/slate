@@ -1,0 +1,10 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.block-quote-author {
+		margin-block: 0;
+	}
+}

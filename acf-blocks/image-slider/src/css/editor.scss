@@ -1,0 +1,14 @@
+@use "sass:meta";
+@use "helpers/init" as *;
+
+.editor-styles-wrapper {
+	@include meta.load-css("style");
+
+	.block-image-slider {
+		&--carousel {
+			.swiper-slide {
+				flex-shrink: unset;
+			}
+		}
+	}
+}

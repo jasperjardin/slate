@@ -1,0 +1,32 @@
+@use "helpers/init" as *;
+
+.block-content-split {
+	&__wrapper {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: $spacing-column-gap;
+
+		@include media-breakpoint-up(lg) {
+			display: grid;
+
+		}
+
+		.is-style-narrow-right & {
+			grid-template-columns: cols(8) cols(4);
+
+		}
+
+		.is-style-narrow-left & {
+			grid-template-columns: cols(4) cols(8);
+		}
+	}
+
+	.block-supertext {
+		grid-column: 1 / 3;
+	}
+
+	.block-content + .block-content {
+		@include media-breakpoint-down(lg) {
+			margin-top: $spacing-row-gap;
+		}
+	}
+}

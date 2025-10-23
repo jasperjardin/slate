@@ -1,0 +1,49 @@
+@use "helpers/init" as *;
+
+.block-search-bar {
+	max-width: cols-max(6);
+	margin-inline: auto;
+
+	&__search {
+		display: flex;
+		border: 1px solid var(--general-line);
+		border-radius: $border-radius;
+		background: var(--general-box-bg);
+		overflow: hidden;
+	}
+
+	&__search-input {
+		@include input-reset();
+		@include action-form-input(false);
+		flex: 1 0 0;
+		padding-inline: $spacing-xs;
+
+		&::placeholder {
+			@include action-form-input(false);
+		}
+	}
+
+	&__label {
+		@include sr-only;
+	}
+
+	&__search-submit {
+		@include btn-reset();
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-width: $form-height;
+		min-height: $form-height;
+		background: var(--buttons-primary-bg);
+
+		[class^="icon-"] {
+			display: flex;
+			color: var(--buttons-primary-text);
+			font-size: r(24);
+		}
+	}
+
+	&.acf-block {
+		padding: 0;
+	}
+}

@@ -1,0 +1,323 @@
+@use "helpers/init" as *;
+@use "main/globals/themes";
+@use "sass:meta";
+
+.block-editor-inserter__panel-content,
+.edit-post-visual-editor {
+	.wp-block {
+		max-width: 1100px;
+
+		body.single-post & {
+			max-width: 705px;
+		}
+	}
+}
+
+.alignleft,
+.alignright {
+	float: none !important;
+}
+
+.editor-styles-wrapper {
+	@include meta.load-css("main/style");
+
+	.wp-block-post-title {
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+
+	ol.wp-block-list,
+	ul.wp-block-list {
+		margin-left: auto !important;
+		padding-left: 50px !important;
+	}
+
+	> .components-resizable-box__container.is-resizable {
+		height: auto;
+		max-height: none;
+	}
+
+	.is-root-container {
+		> :first-child {
+			margin-top: 0 !important;
+		}
+
+		> [class*="wp-block-acf"] {
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
+
+		> .alignright,
+		> .alignleft,
+		> .aligncenter {
+			float: none !important;
+			margin-inline-start: auto !important;
+			margin-inline-end: auto !important;
+		}
+	}
+
+	.block-editor-block-list__insertion-point {
+		padding-right: 30px;
+		padding-left: 30px;
+
+		.block-editor-block-list__insertion-point-indicator {
+			width: calc(100% - 60px);
+		}
+	}
+
+	.block-list-appender {
+		margin-top: 40px;
+	}
+
+	.block-list-appender,
+	.block-editor-block-list__block[data-title] {
+		margin-right: auto;
+		margin-left: auto;
+
+		&:not(.acf-block-component) {
+			padding-right: 30px;
+			padding-left: 30px;
+		}
+	}
+
+	div.block-editor-block-list__block[data-title] {
+		display: flex;
+		align-items: stretch;
+		width: 100%;
+		margin-right: auto;
+		margin-left: auto;
+		box-sizing: border-box;
+
+		&.is-selected {
+			> * {
+				border-color: var(--text-link);
+				outline: 5px auto var(--text-link);
+			}
+
+			&::after {
+				box-shadow: none !important;
+			}
+
+			&::before {
+				color: var(--text-link);
+			}
+		}
+
+		&::before {
+			content: attr(data-title);
+			display: block;
+			padding-right: 4px;
+			padding-bottom: 2px;
+			font-weight: 600;
+			font-size: 12px;
+			line-height: 1;
+			text-align: right;
+			text-orientation: sideways-right;
+			cursor: pointer;
+			transform: scale(-1);
+			writing-mode: vertical-rl;
+		}
+
+		> .acf-block-component {
+			flex: 1;
+		}
+
+		> * {
+			flex: 1;
+			padding: 4px;
+			border: 1px dashed rgba(#000, 0.15);
+		}
+
+		&.acf-block-body {
+			> div {
+				width: 100%;
+			}
+		}
+	}
+
+	.block-editor-block-list__block.wp-block-freeform {
+		position: relative;
+
+		&::before {
+			border: 0;
+		}
+
+		&.is-selected {
+			.block-library-classic__toolbar {
+				display: block;
+				padding: 0;
+				border: 0;
+				outline: none;
+			}
+
+			> .wp-block-freeform {
+				padding-top: r(55);
+			}
+		}
+
+		.block-library-classic__toolbar {
+			position: absolute;
+			top: r(2);
+			left: r(18);
+			right: r(2);
+			display: none;
+			border-top-left-radius: r(4);
+			border-top-right-radius: r(4);
+			overflow: hidden;
+
+			.mce-toolbar-grp {
+				padding: r(4);
+			}
+
+			.mce-container-body,
+			.mce-toolbar-grp {
+				box-sizing: border-box;
+			}
+		}
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.row {
+		margin-right: 0;
+		margin-left: 0;
+
+		.acf-innerblocks-container {
+			padding: 0;
+		}
+	}
+
+
+	.cms {
+		> :first-child {
+			margin-top: 0 !important;
+		}
+
+		> .acf-innerblocks-container {
+			> :first-child {
+				margin-top: 0 !important;
+			}
+
+			> :last-child {
+				margin-bottom: 0 !important;
+			}
+		}
+
+		> :not(.block-list-appender):last-of-type {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	*:not(.block-list-appender):last-of-type {
+		margin-bottom: 0 !important;
+	}
+
+	.acf-block-preview {
+		> .acf-block {
+			width: 100%;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	.block-library-block__reusable-block-container {
+		flex-direction: column;
+		padding-left: 16px;
+
+		&::before {
+			content: "Global Pattern" !important;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		> * {
+			flex-basis: 100% !important;
+			margin: 0 !important;
+		}
+	}
+
+	// Remove text-transform when editing text.
+	[contenteditable="true"]:focus {
+		text-transform: none !important;
+	}
+
+}
+
+// Hide bulk actions dropdown in sidebar.
+.components-panel {
+	.acf-hl > li.acf-fr {
+		display: none;
+	}
+}
+
+// Hide font size hint. We aren't using it for a size.
+.components-font-size-picker__select {
+	.components-custom-select-control {
+		&__item-hint {
+			display: none;
+		}
+	}
+}
+
+.components-placeholder.components-placeholder {
+	box-shadow: none;
+}
+
+.acf-innerblocks-container {
+	&.hide-appender {
+		> .block-list-appender {
+			display: none !important;
+		}
+	}
+}
+
+.module-pattern-sidebar {
+	max-height: 198px;
+	overflow-y: auto;
+
+	.components-base-control {
+		display: block;
+		margin-bottom: 4px;
+		overflow: hidden;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.imp-theme-selector {
+	display: flex;
+	gap: r(4);
+	align-items: center;
+
+	&__swatch {
+		display: inline-block;
+		width: r(24);
+		height: r(24);
+		border-radius: 50%;
+		box-shadow: inset 0 0 2px rgba(#000, 0.5);
+	}
+}
+
+ul.wp-block-list,
+ol.wp-block-list {
+	margin-left: r(20) !important;
+
+	&.is-style-check {
+		margin: $spacing-sm 0 $spacing-sm r(30) !important;
+	}
+}
+
+.wp-block-list-item {
+	padding: 0 !important;
+}
+
+.hide-appender {
+	.block-list-appender {
+		display: none !important;
+	}
+}
