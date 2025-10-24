@@ -6,7 +6,7 @@
  *
  * @package     Slate
  * @subpackage  Slate/Src
- * @category    Slate/Src/Extender
+ * @category    Slate/Src/Shortcodes
  * @author      Jasper B. Jardin <jasper.jardin1994@gmail.com>
  * @link        https://profiles.wordpress.org/wpjasper/
  * @since       0.0.1
