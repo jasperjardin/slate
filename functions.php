@@ -48,10 +48,10 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 // add_action( 'after_setup_theme', 'slate_load_config', 10 );
 
 
-use \Slate\Src\Init as Slate_Theme_Initializer;
+use \Slate\Src\Initialize as Slate_Initialize;
 
 function slate_theme_initializer() {
-	$initializer = new Slate_Theme_Initializer();
+	$initializer = new Slate_Initialize();
 
 	$initializer->run();
 }
