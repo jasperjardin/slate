@@ -18,3 +18,9 @@ namespace Slate\Src\Components\Metaboxes;
 if ( ! defined( 'ABSPATH' ) ) {
     return;
 }
+
+/**
+ * Initialize the Utility Metabox.
+ */
+use \Slate\Src\Components\Metaboxes\Menus\Utility as Utility_Metabox;
+new Utility_Metabox();
