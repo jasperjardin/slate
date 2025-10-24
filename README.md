@@ -30,7 +30,7 @@ acf-blocks/       # ACF Gutenblocks.
 acf-json/         # ACF field groups synced automatically.
 assets/vendor     # Third-party vendor files and 3rd party libraries and scripts that are manually managed.
 assets/images     # Media files that don't require a build process (images etc).
-assets/resources/       # Source files (SCSS, JS, icons, etc.)
+assets/resources/ # Source files (SCSS, JS, icons, etc.)
 components/       # Reusable UI components that can enqueue their own CSS/JS when used.
 includes/         # PHP files and functions for backend logic. PHP files in the folder are automatically included.
 tasks/            # Task automation scripts (e.g., gulp, webpack).
