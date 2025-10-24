@@ -16,6 +16,15 @@
 namespace Slate\Src;
 
 /**
+ * The "Slate/Src/Interfaces/Core/Config" interface handles the method signatures dedicated for the "Slate/Src/Config" class.
+ */
+use \Slate\Src\Interfaces\Core\Config as Config_Interface;
+
+if ( ! defined( 'ABSPATH' ) ) {
+	return;
+}
+
+/**
  * This class is used to load the configuration array from the dedicated file.
  * It checks if the theme is a plugin, parent theme or child theme and loads the configuration from the appropriate file.
  * The configuration array is stored in the $config property.
@@ -26,7 +35,7 @@ namespace Slate\Src;
  * echo $config;
  * ```
  */
-final class Config {
+final class Config implements Config_Interface {
 	/**
 	 * The configuration array.
 	 *
@@ -212,7 +221,19 @@ final class Config {
 		return $data;
 	}
 
-	public static function load( string $filename ): void {
+	/**
+	 * Load the configuration array from the dedicated file.
+	 *
+	 * @since       0.0.1
+	 * @author      Jasper Jardin
+	 * @created_at  2025-10-19
+	 * @access		public
+	 * @static
+	 * @param		string			$filename		The filename to load the configuration from.
+	 *
+	 * @return		void							The configuration value for the given key.
+	 */
+	public static function load( string $filename ) : void {
 
 		// Resolve base path: prefer child theme, fallback to parent.
 		$is_child_theme = is_child_theme();
@@ -259,7 +280,7 @@ final class Config {
 	 *
 	 * @return		mixed			$value			The configuration value for the given key.
 	 */
-	public static function get( string $key, $default_key = null ) {
+	public static function get( string $key, $default_key = null ) : mixed {
 		// Lazy-load config if not yet loaded (fallback in case get() is called early).
 		if ( empty( self::$config ) ) {
 			$loader_config = @require get_stylesheet_directory() . '/config/loader.php';

@@ -13,7 +13,12 @@
  * @created_at  2025-10-19
  */
 
-namespace Slate\Src;
+ namespace Slate\Src;
+
+/**
+ * The "Slate/Src/Interfaces/Core/Activator" interface handles the method signatures dedicated for the "Slate/Src/Activator" class.
+ */
+use \Slate\Src\Interfaces\Core\Activator as Activator_Interface;
 
 /**
  * The class responsible for loading the base context.
@@ -29,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * This class defines all code necessary to execute during the program's activation.
  */
-final class Activator extends Abstract_Core_Context {
+final class Activator extends Abstract_Core_Context implements Activator_Interface {
 
 	/**
 	 * Initialize the class.

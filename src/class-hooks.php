@@ -15,6 +15,11 @@
 
 namespace Slate\Src;
 
+/**
+ * The "Slate/Src/Interfaces/Core/Hooks" interface handles the method signatures dedicated for the "Slate/Src/Hooks" class.
+ */
+use \Slate\Src\Interfaces\Core\Hooks as Hooks_Interface;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	return;
 }
@@ -26,7 +31,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * the program, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  */
-final class Hooks {
+final class Hooks implements Hooks_Interface {
+	/**
+	 * The array of action & filter hooks registered with WordPress.
+	 *
+	 * @since		0.0.1
+	 * @author		Jasper Jardin
+	 * @created_at	2025-10-19
+	 * @access		protected
+	 * @var			array			$hooks	The action & filter hooks registered with WordPress to fire when the program loads.
+	 */
+	protected $hooks;
+
 	/**
 	 * The array of actions registered with WordPress.
 	 *
@@ -59,8 +75,9 @@ final class Hooks {
 	 * @return		void
 	 */
 	public function __construct() {
-		$this->actions = array();
-		$this->filters = array();
+		$this->hooks	= array();
+		$this->actions	= array();
+		$this->filters	= array();
 	}
 
 	/**
@@ -77,8 +94,9 @@ final class Hooks {
 	 * @param 		int			$accepted_args		Optional. The number of arguments that should be passed to the $callback. Default is 1.
 	 * @return		void
 	 */
-	public function add_action( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
-		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args );
+	public function add_action( string $hook, object $component, string $callback, int $priority = 10, int $accepted_args = 1 ) : void {
+		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args, 'action' );
+		return;
 	}	
 	/**
 	 * Add a new filter to the collection to be registered with WordPress.
@@ -94,8 +112,9 @@ final class Hooks {
 	 * @param 		int			$accepted_args		Optional. The number of arguments that should be passed to the $callback. Default is 1.
 	 * @return		void
 	 */
-	public function add_filter( $hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
-		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
+	public function add_filter( string $hook, object $component, string $callback, int $priority = 10, int $accepted_args = 1 ) : void {
+		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args, 'filter' );
+		return;
 	}
 
 	/**
@@ -111,18 +130,38 @@ final class Hooks {
 	 * @param		string		$callback			The name of the function definition on the $component.
 	 * @param		int			$priority			The priority at which the function should be fired.
 	 * @param		int			$accepted_args		The number of arguments that should be passed to the $callback.
+	 * @param		string		$type				The type of hook being registered (action or filter).
 	 * @return		array		$hooks				The collection of actions and filters registered with WordPress.
 	 */
-	private function add( $hooks, $hook, $component, $callback, $priority, $accepted_args ) {
-		$hooks[] = array(
+	private function add( $hooks, $hook, $component, $callback, $priority, $accepted_args, $type ) {
+		$register_hook = array(
 			'hook'          => $hook,
 			'component'     => $component,
 			'callback'      => $callback,
 			'priority'      => $priority,
-			'accepted_args' => $accepted_args
+			'accepted_args' => $accepted_args,
 		);
 
+		if ( 'action' === $type || 'filter' === $type ) {
+			$this->hooks[$type] = $register_hook;
+			$hooks[] = $register_hook;
+		}
+
 		return $hooks;
+	}
+
+	/**
+	 * Get the array of action & filter hooks registered with WordPress.
+	 *
+	 * @since		0.0.1
+	 * @author		Jasper Jardin
+	 * @created_at	2025-10-19
+	 * @access		public
+	 * @return		array		$hooks	The array of action & filter hooks registered with WordPress.
+	 */
+	public function get_hooks() {
+		// Returns the hooks property.
+		return $this->hooks;
 	}
 
 	/**
@@ -134,7 +173,7 @@ final class Hooks {
 	 * @access		public
 	 * @return		void
 	 */
-	public function run() {
+	public function run() : void {
 		// Execute all the filters registered to the Loader class run() method.
 		if ( is_array( $this->filters ) && isset( $this->filters ) && ! empty( $this->filters ) ) {
 			foreach ( $this->filters as $filter ) {

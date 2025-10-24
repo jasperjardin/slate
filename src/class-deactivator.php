@@ -16,6 +16,11 @@
 namespace Slate\Src;
 
 /**
+ * The "Slate/Src/Interfaces/Core/Deactivator" interface handles the method signatures dedicated for the "Slate/Src/Deactivator" class.
+ */
+use \Slate\Src\Interfaces\Core\Deactivator as Deactivator_Interface;
+
+/**
  * The class responsible for loading the base context.
  */
 use \Slate\Src\Abstracts\Core\Context as Abstract_Core_Context;
@@ -29,8 +34,17 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * This class defines all code necessary to run during the program's deactivation.
  */
-final class Deactivator extends Abstract_Core_Context {
+final class Deactivator extends Abstract_Core_Context implements Deactivator_Interface {
 
+	/**
+	 * Initialize the class.
+	 *
+	 * @since		0.0.1
+	 * @author		Jasper Jardin
+	 * @created_at	2025-10-19
+	 * @access		public
+	 * @return		void
+	 */
 	public function __construct() {
 		parent::__construct();
 	}
@@ -47,7 +61,7 @@ final class Deactivator extends Abstract_Core_Context {
 	 * @static
 	 * @return		void
 	 */
-	public static function deactivate() {
+	public static function deactivate() : void {
 		do_action(
 			sprintf(
 				'%1$s[on][deactivation]',
@@ -68,7 +82,7 @@ final class Deactivator extends Abstract_Core_Context {
 	 * @static
 	 * @return		void
 	 */
-	public static function flush_rewrite_rules() {
+	public static function flush_rewrite_rules() : void {
 		flush_rewrite_rules();
 		return;
 	}
