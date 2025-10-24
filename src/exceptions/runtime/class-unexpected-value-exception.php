@@ -10,7 +10,7 @@
  * @since       0.0.1
  * @license     GPL-2.0+
  * @copyright   2025 | https://github.com/jasperjardin/slate
- * @created_at  2025-10-24
+ * @created_at  2025-10-19
  */
 
 namespace Slate\Src\Exceptions\Runtime;
@@ -32,7 +32,7 @@ final class Unexpected_Value_Exception extends UnexpectedValueException {
 	 *
 	 * @since		0.0.1
 	 * @author		Jasper Jardin
-	 * @created_at	2025-10-24
+	 * @created_at	2025-10-19
 	 * @access		protected
 	 * @var			string		$error_details		The details of the error.
 	 */
@@ -43,7 +43,7 @@ final class Unexpected_Value_Exception extends UnexpectedValueException {
 	 *
 	 * @since		0.0.1
 	 * @author		Jasper Jardin
-	 * @created_at	2025-10-24
+	 * @created_at	2025-10-19
 	 * @access		public
 	 * @param		string		$details		The details of the error.
 	 */
@@ -59,7 +59,7 @@ final class Unexpected_Value_Exception extends UnexpectedValueException {
 	 *
 	 * @since		0.0.1
 	 * @author		Jasper Jardin
-	 * @created_at	2025-10-24
+	 * @created_at	2025-10-19
 	 * @access		public
 	 * @return		string		$error_details		The details of the error.
 	 */
