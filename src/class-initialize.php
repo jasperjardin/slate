@@ -1,13 +1,13 @@
 <?php
 /**
- * The file that defines the Init program class
+ * The file that defines the Initialize program class
  *
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
  * @package     Slate
  * @subpackage  Slate/Src
- * @category    Slate/Src/Init
+ * @category    Slate/Src/Initialize
  * @author      Jasper B. Jardin <jasper.jardin1994@gmail.com>
  * @link        https://profiles.wordpress.org/wpjasper/
  * @since       0.0.1
@@ -17,6 +17,11 @@
  */
 
 namespace Slate\Src;
+
+/**
+ * The "Slate/Src/Interfaces/Core/Initialize" interface handles the method signatures dedicated for the "Slate/Src/Initialize" class.
+ */
+use \Slate\Src\Interfaces\Core\Initialize as Initialize_Interface;
 
 /**
  * The class responsible for loading the configuration array from the dedicated file.
@@ -107,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This is used to define internationalization, admin-specific hooks, and public-facing site hooks.
  * Also maintains the unique identifier of this program as well as the current version of the program.
  */
-final class Init {
+final class Initialize implements Initialize_Interface {
 	/**
 	 * The responsible for maintaining and registering all hooks that power the program.
 	 *
@@ -177,7 +182,7 @@ final class Init {
 	 * @access		public
 	 * @return		void
 	 */
-	private function load_config() {
+	private function load_config() : void {
 		// Load the Config class (assuming you have an autoloader or 'require' it).
 		$loader_config = require_once get_stylesheet_directory() . '/config/loader.php';
 
@@ -200,7 +205,7 @@ final class Init {
 	 * @access		public
 	 * @return		void
 	 */
-	public function program_activate() {
+	public function program_activate() : void {
 		// Initialize the Activator class
 		$proccess = new Activator();
 
@@ -217,7 +222,7 @@ final class Init {
 	 * @access		public
 	 * @return		void
 	 */
-	public function program_deactivate() {
+	public function program_deactivate() : void {
 		// Initialize the Deactivator class
 		$proccess = new Deactivator();
 
@@ -244,7 +249,7 @@ final class Init {
 	 * @access		private
 	 * @return		void
 	 */
-	private function load_dependencies() {
+	private function load_dependencies() : void {
 
 		// Initialize the Hooks class
 		$this->hooks = new Hooks();
@@ -295,7 +300,7 @@ final class Init {
 	 * @access		private
 	 * @return		void
 	 */
-	private function set_locale() {
+	private function set_locale() : void {
 
 		// Initialize the Localization class
 		$lang = new Localization();
@@ -314,7 +319,7 @@ final class Init {
 	 * @access		private
 	 * @return		void
 	 */
-	private function define_admin_hooks() {
+	private function define_admin_hooks() : void {
 
 		// Initialize the Admin_Init class
 		$admin    = new Admin_Init( $this->get_program_name(), $this->get_version() );
@@ -342,7 +347,7 @@ final class Init {
 	 * @access		private
 	 * @return		void
 	 */
-	private function define_public_hooks() {
+	private function define_public_hooks() : void {
 
 		// Initialize the Public_Init class
 		$public = new Public_Init( $this->get_program_name(), $this->get_version() );
@@ -369,7 +374,7 @@ final class Init {
 	 * @access		public
 	 * @return		void
 	 */
-	public function run() {
+	public function run() : void {
 
 		// Execute all process after theme was activated.
 		$this->hooks->add_action( 'after_setup_theme', $this, 'program_activate' );
@@ -389,25 +394,25 @@ final class Init {
 	 * @author		Jasper Jardin
 	 * @created_at	2025-10-19
 	 * @access		public
-	 * @return		string    The name of the program.
+	 * @return		string		$program_name	The string used to uniquely identify this program.
 	 */
-	public function get_program_name() {
+	public function get_program_name() : string {
 		// Returns the program name property.
 		return $this->program_name;
 	}
 
 	/**
-	 * The reference to the class that orchestrates the hooks with the program.
+	 * Get the array of action & filter hooks registered with WordPress.
 	 *
 	 * @since		0.0.1
 	 * @author		Jasper Jardin
 	 * @created_at	2025-10-19
 	 * @access		public
-	 * @return		\Slate\Src\Hooks    Orchestrates the hooks of the program.
+	 * @return		array		$hooks			The array of action & filter hooks registered with WordPress.
 	 */
-	public function get_hooks() {
+	public function get_hooks() : array {
 		// Returns the hooks property.
-		return $this->hooks;
+		return $this->hooks->get_hooks();
 	}
 
 	/**
@@ -417,9 +422,9 @@ final class Init {
 	 * @author		Jasper Jardin
 	 * @created_at	2025-10-19
 	 * @access	  	public
-	 * @return		string    The version number of the program.
+	 * @return		string    $version			The version number of the program.
 	 */
-	public function get_version() {
+	public function get_version() : string {
 		// Returns the program version property.
 		return $this->version;
 	}
